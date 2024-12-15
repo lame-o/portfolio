@@ -1,0 +1,618 @@
+'use client'
+
+import Image from 'next/image'
+import { Mail, Github, Linkedin, Code, Server, Zap, Globe, ArrowUpRight, ArrowRight, ExternalLink } from 'lucide-react'
+import { motion } from 'framer-motion'
+import { Button } from "@/components/ui/button"
+import { Card, CardContent, CardFooter } from "@/components/ui/card"
+import { Badge } from "@/components/ui/badge"
+import { smoothScroll } from "@/utils/smoothScroll"
+
+export default function Home() {
+  const projects = [
+    { 
+      title: "PantryPal", 
+      desc: "AI tool for College students with limited ingredients and cooking experience", 
+      tech: ["Next.js", "React", "Node.js", "TypeScript", "Tailwind CSS", "OpenAI API", "JavaScript"], 
+      url: "https://pantrypalv2.vercel.app/", 
+      github: "https://github.com/lame-o/pantrypalv2",
+      image: "/images/pantrypalimg.png" 
+    },
+    { 
+      title: "Code4Dummies", 
+      desc: "An AI tool for breaking down and learning given code", 
+      tech: ["Next.js", "TypeScript", "Tailwind CSS", "OpenAI API", "JavaScript"], 
+      url: "https://code4dummies.vercel.app/", 
+      github: "https://github.com/lame-o/code4dummies",
+      image: "/images/code4dummiesimg.png" 
+    },
+    { 
+      title: "Prompt.ly", 
+      desc: "AI tool for editing and improving prompts for other LLMs", 
+      tech: ["Next.js", "React", "Tailwind CSS", "TypeScript", "OpenAI API", "JavaScript"], 
+      url: "https://prompt-ly.vercel.app/", 
+      github: "https://github.com/lame-o/prompt.ly",
+      image: "/images/promptimg.png" 
+    },
+    { 
+      title: "AI Image Editor", 
+      desc: "Upload an image and receive a stylized version using Dalle 2", 
+      tech: ["JavaScript", "Python", "Tailwind CSS", "Flask", "Dalle 2"], 
+      url: "https://samurai-transformer.onrender.com", 
+      github: "https://github.com/lame-o/samurai-transformer",
+      image: "/images/samurai.png" 
+    },
+  ]
+
+  return (
+    <main className="min-h-screen bg-background text-foreground antialiased">
+      {/* Header / Navigation */}
+      <header className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-md border-b border-border/40">
+        <nav className="container mx-auto px-6 h-16">
+          <div className="flex items-center justify-between h-full">
+            <div className="flex items-center gap-2">
+              <motion.div
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                transition={{
+                  type: "spring",
+                  stiffness: 400,
+                  damping: 10
+                }}
+              >
+                <Button
+                  variant="ghost"
+                  size="icon"
+                  className="rounded-full hover:bg-primary hover:text-primary-foreground transition-all duration-300"
+                  onClick={() => window.open('https://linkedin.com/in/liam-dwight', '_blank')}
+                >
+                  <Linkedin className="w-5 h-5" />
+                </Button>
+              </motion.div>
+              <motion.div
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                transition={{
+                  type: "spring",
+                  stiffness: 400,
+                  damping: 10
+                }}
+              >
+                <Button
+                  variant="ghost"
+                  size="icon"
+                  className="rounded-full hover:bg-primary hover:text-primary-foreground transition-all duration-300"
+                  onClick={() => window.open('https://github.com/lame-o', '_blank')}
+                >
+                  <Github className="w-5 h-5" />
+                </Button>
+              </motion.div>
+            </div>
+            <div className="flex items-center space-x-4">
+              {['About', 'Web Apps', 'Projects', 'Contact'].map((item) => (
+                <motion.div
+                  key={item}
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                  transition={{
+                    type: "spring",
+                    stiffness: 400,
+                    damping: 10
+                  }}
+                >
+                  <Button
+                    variant="ghost"
+                    className="rounded-full hover:bg-primary hover:text-primary-foreground transition-all duration-300"
+                    onClick={() => {
+                      const element = document.getElementById(item.toLowerCase().replace(' ', '-'));
+                      if (element) {
+                        element.scrollIntoView({ behavior: 'smooth' });
+                      }
+                    }}
+                  >
+                    {item}
+                  </Button>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+        </nav>
+      </header>
+
+      {/* Hero Section */}
+      <section id="hero" className="py-20 bg-background">
+        <div className="container mx-auto px-4 relative z-0">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            className="text-center space-y-8"
+          >
+            <div className="w-[250px] h-[250px] relative mx-auto">
+              <Image
+                src="/images/profile.jpeg"
+                alt="Your Name"
+                fill
+                className="rounded-full object-cover border-4 border-primary shadow-[0_20px_40px_rgba(8,_112,_184,_0.95)] hover:scale-105 transition-transform duration-300"
+                priority
+              />
+            </div>
+            <div className="space-y-4">
+              <h1 className="text-4xl md:text-6xl font-bold">
+                <motion.span 
+                  initial={{ opacity: 1 }}
+                  whileHover={{ 
+                    scale: 1.1,
+                    y: -5
+                  }}
+                  transition={{
+                    type: "spring",
+                    stiffness: 300,
+                    damping: 10
+                  }}
+                  className="inline-block text-primary"
+                >
+                  Liam
+                </motion.span>{' '}
+                <motion.span 
+                  initial={{ opacity: 1 }}
+                  whileHover={{ 
+                    scale: 1.1,
+                    y: -5
+                  }}
+                  transition={{
+                    type: "spring",
+                    stiffness: 300,
+                    damping: 10
+                  }}
+                  className="inline-block text-primary"
+                >
+                  Dwight
+                </motion.span>
+              </h1>
+              <motion.p 
+                className="text-xl md:text-2xl text-foreground max-w-2xl mx-auto"
+                whileHover={{ scale: 1.02 }}
+                transition={{ duration: 0.3 }}
+              >
+                <motion.span 
+                  className="inline-block"
+                  whileHover={{ 
+                    y: -2
+                  }}
+                  transition={{
+                    type: "spring",
+                    stiffness: 500,
+                    damping: 15
+                  }}
+                >
+                  UCSD grad combining AI and full stack web development.
+                </motion.span>
+              </motion.p>
+            </div>
+            <motion.div
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              transition={{
+                type: "spring",
+                stiffness: 400,
+                damping: 15
+              }}
+            >
+              <Button
+                size="lg"
+                className="bg-primary text-primary-foreground hover:bg-primary/90 transition-all duration-300 
+                rounded-full text-lg px-8 py-3 shadow-lg hover:shadow-xl hover:shadow-primary/20"
+                onClick={() => smoothScroll('contact')}
+              >
+                Let's Connect!
+              </Button>
+            </motion.div>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* About Section */}
+      <section id="about" className="py-20 bg-muted/30">
+        <div className="container mx-auto px-6">
+          <motion.h2 
+            className="text-3xl md:text-4xl font-bold text-primary mb-12 text-center"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            whileHover={{ 
+              scale: 1.05,
+              y: -2
+            }}
+            transition={{
+              type: "spring",
+              stiffness: 300,
+              damping: 10
+            }}
+            viewport={{ once: true }}
+          >
+            About Me
+          </motion.h2>
+          <div className="grid md:grid-cols-2 gap-12 items-center">
+            <motion.div
+              initial={{ opacity: 0, x: -20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.6 }}
+              viewport={{ once: true }}
+              className="space-y-6"
+            >
+              <p className="text-lg leading-relaxed text-foreground/90">
+                Hello! I'm Liam, a new <span className="font-bold text-primary">UCSD</span> graduate and developer passionate about leveraging AI to build modern web applications. I love combining design with data, and have found myself using <span className="font-bold text-primary">AI</span> to accelerate <span className="font-bold text-primary">user-centered design</span> solutions for complex problems.
+              </p>
+              <p className="text-lg leading-relaxed text-foreground/90">
+                With experience in full stack development and the full product lifecycle (beginning with <span className="font-bold text-primary">user research</span> and problem interviews), I've also been interested in the uses of <span className="font-bold text-primary">RAG</span> and <span className="font-bold text-primary">Vector Databases</span>. I'm always eager to learn new technologies and improve my <span className="font-bold text-primary">Prompt Engineering</span>, below are some of the tools I'm currently using  to help.
+              </p>
+              <p className="text-lg leading-relaxed text-foreground/90">
+                In my spare time I enjoy climbing 🧗, playing video games 🎮, watching soccer ⚽, and of course annoying my girlfriend's dog 🐶
+              </p>
+              <div className="flex flex-wrap gap-3">
+                {["v0", "Windsurf", "Cursor", "Vercel", "Render"].map((tech, index) => (
+                  <Badge 
+                    key={index}
+                    variant="secondary" 
+                    className="bg-primary/15 hover:bg-primary/25 text-primary font-medium px-3 py-1 rounded-full border border-primary/20 transition-all duration-300"
+                  >
+                    {tech}
+                  </Badge>
+                ))}
+              </div>
+            </motion.div>
+            
+            <div className="relative w-full h-[500px]">
+              <motion.div
+                initial={{ opacity: 0, x: 20, rotate: 15 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.6, delay: 0.2 }}
+                viewport={{ once: true }}
+                className="absolute right-0 top-0 w-[350px] h-[450px]"
+              >
+                <Image
+                  src="/images/professional-photo.jpeg"
+                  alt="Professional photo"
+                  fill
+                  className="object-cover rounded-2xl border-4 border-primary shadow-[0_20px_80px_rgba(8,_112,_184,_0.95)] hover:scale-105 transition-transform duration-300"
+                  priority
+                />
+              </motion.div>
+              <motion.div
+                initial={{ opacity: 0, x: -20, rotate: -15 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.6, delay: 0.4 }}
+                viewport={{ once: true }}
+                className="absolute right-[40%] bottom-0 w-[300px] h-[400px]"
+              >
+                <Image
+                  src="/images/casual-photo.png"
+                  alt="Casual photo"
+                  fill
+                  className="object-cover rounded-2xl border-4 border-primary shadow-[0_20px_80px_rgba(8,_112,_184,_0.95)] hover:scale-105 transition-transform duration-300"
+                />
+              </motion.div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Web App Deployments Section */}
+      <section id="web-apps" className="py-20 bg-background">
+        <div className="container mx-auto px-6">
+          <motion.h2 
+            className="text-3xl md:text-4xl font-bold text-primary mb-12 text-center"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            whileHover={{ 
+              scale: 1.05,
+              y: -2
+            }}
+            transition={{
+              type: "spring",
+              stiffness: 300,
+              damping: 10
+            }}
+            viewport={{ once: true }}
+          >
+            My AI Web Apps
+          </motion.h2>
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {projects.map((project, i) => (
+              <motion.div
+                key={i}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: i * 0.1 }}
+                viewport={{ once: true }}
+              >
+                <Card 
+                  className={`overflow-hidden h-full flex flex-col transition-all duration-300 hover:shadow-lg hover:-translate-y-1 hover:bg-accent/5
+                    ${project.title === "PantryPal" ? "bg-[#f0fff4] hover:bg-[#e6ffed] border-[#bae6b3] border-2" : 
+                      project.title === "Code4Dummies" ? "bg-[#eee5ff] hover:bg-[#e5dbff] border-[#d4c5ff] border-2" :
+                      project.title === "Prompt.ly" ? "bg-[#fffbe6] hover:bg-[#fff7cc] border-[#ffeb99] border-2" :
+                      project.title === "AI Image Editor" ? "bg-[#ffe6e6] hover:bg-[#ffd6d6] border-[#ffb3b3] border-2" :
+                      "bg-card"}`}
+                >
+                  <CardContent className="p-6 flex-grow">
+                    <div className="relative w-full h-48 mb-4 rounded-lg overflow-hidden">
+                      <Image
+                        src={project.image}
+                        alt={project.title}
+                        layout="fill"
+                        objectFit="cover"
+                      />
+                    </div>
+                    <h3 className="font-bold text-xl mb-2 text-primary">{project.title}</h3>
+                    <p className="text-foreground mb-4 leading-relaxed">{project.desc}</p>
+                    <div className="flex flex-wrap gap-2 mb-4">
+                      {project.tech.map((tech, index) => (
+                        <Badge 
+                          key={index} 
+                          variant="secondary" 
+                          className="bg-primary/15 hover:bg-primary/25 text-primary font-medium px-3 py-1 rounded-full border border-primary/20 transition-all duration-300"
+                        >
+                          {tech}
+                        </Badge>
+                      ))}
+                    </div>
+                  </CardContent>
+                  <CardFooter className="p-6 pt-0">
+                    <div className="flex gap-2 w-full">
+                      {project.github && (
+                        <motion.div
+                          whileHover={{ scale: 1.05 }}
+                          whileTap={{ scale: 0.95 }}
+                          transition={{
+                            type: "spring",
+                            stiffness: 400,
+                            damping: 10
+                          }}
+                          className="w-full"
+                        >
+                          <Button
+                            asChild
+                            variant="outline"
+                            className="w-full hover:bg-primary hover:text-primary-foreground transition-all duration-300 rounded-full border-primary/20"
+                          >
+                            <a href={project.github} target="_blank" rel="noopener noreferrer" className="flex items-center justify-center">
+                              <Github className="w-4 h-4 mr-2" />
+                              GitHub
+                            </a>
+                          </Button>
+                        </motion.div>
+                      )}
+                      {project.url && (
+                        <motion.div
+                          whileHover={{ scale: 1.05 }}
+                          whileTap={{ scale: 0.95 }}
+                          transition={{
+                            type: "spring",
+                            stiffness: 400,
+                            damping: 10
+                          }}
+                          className="w-full"
+                        >
+                          <Button
+                            asChild
+                            variant="outline"
+                            className="w-full hover:bg-primary hover:text-primary-foreground transition-all duration-300 rounded-full border-primary/20"
+                          >
+                            <a href={project.url} target="_blank" rel="noopener noreferrer" className="flex items-center justify-center whitespace-nowrap">
+                              <ExternalLink className="w-4 h-4 mr-2" />
+                              View Project
+                            </a>
+                          </Button>
+                        </motion.div>
+                      )}
+                    </div>
+                  </CardFooter>
+                </Card>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Projects Section */}
+      <section id="projects" className="py-20 bg-muted/30">
+        <div className="container mx-auto px-6">
+          <motion.h2 
+            className="text-3xl md:text-4xl font-bold text-primary mb-12 text-center"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            whileHover={{ 
+              scale: 1.05,
+              y: -2
+            }}
+            transition={{
+              type: "spring",
+              stiffness: 300,
+              damping: 10
+            }}
+            viewport={{ once: true }}
+          >
+            My Projects
+          </motion.h2>
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {[
+              { 
+                title: " 🎵 Optimizing & Predicting Setlists ", 
+                desc: "Completed end-to-end data processing, including web scraping with BeautifulSoup, full data wrangling, and integrating music features via the Spotify API. Conducted descriptive and exploratory data analysis using pandas, Seaborn, and VADER for sentiment analysis. Developed inferential and predictive models using KNN to simulate setlist optimization.", 
+                tech: "Python, Pandas, Seaborn",
+                url: "http://tinyurl.com/Group10-FinalReport" // Replace with your actual URL
+              },
+              { 
+                title: " 📊 LiveDataViz ", 
+                desc: "Group design project focused on enhancing data visualization tools for collaborative and live presentation settings using AI. Developed and refined interactive wireframes and sketches over several months, leveraging user-centered design principles. Delivered a fully functional Figma prototype showcasing improved interaction techniques, such as real-time synchronization, data annotation, and collaborative workflows", 
+                tech: "Figma",
+                url: "https://tinyurl.com/LiveDataViz" // Replace with your actual URL
+              },
+              { 
+                title: " 🍃 Aromacovery ", 
+                desc: "Full product development for sleeping pod experience, beginning with user & problem research, prototype & wireframe iteration, usability testing, and Figma UI/UX design. Created high-fidelity prototypes for the physical pod and interface showcasing all possible user flows.", 
+                tech: "Figma, Sketch, Inkscape",
+                url: "http://tinyurl.com/Aromacovery" // Replace with your actual URL
+              },
+            ].map((project, i)=> (
+              <motion.div
+                key={i}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: i * 0.1 }}
+                viewport={{ once: true }}
+              >
+                <Card className="overflow-hidden bg-card h-full flex flex-col transition-all duration-300 hover:shadow-lg hover:-translate-y-1 hover:bg-accent/5 border-2">
+                  <CardContent className="p-6 flex-grow">
+                    <h3 className="font-bold text-xl mb-2 text-primary">{project.title}</h3>
+                    <p className="text-foreground mb-4 leading-relaxed">{project.desc}</p>
+                    <div className="flex flex-wrap gap-2 mb-4">
+                      {project.tech.split(', ').map((tech, index) => (
+                        <Badge 
+                          key={index} 
+                          variant="secondary" 
+                          className="bg-primary/15 hover:bg-primary/25 text-primary font-medium px-3 py-1 rounded-full border border-primary/20 transition-all duration-300"
+                        >
+                          {tech}
+                        </Badge>
+                      ))}
+                    </div>
+                  </CardContent>
+                  <CardFooter className="p-6 pt-0">
+                    <div className="flex gap-2 w-full">
+                      {project.url && (
+                        <motion.div
+                          whileHover={{ scale: 1.05 }}
+                          whileTap={{ scale: 0.95 }}
+                          transition={{
+                            type: "spring",
+                            stiffness: 400,
+                            damping: 10
+                          }}
+                          className="w-full"
+                        >
+                          <Button
+                            asChild
+                            variant="outline"
+                            className="w-full hover:bg-primary hover:text-primary-foreground transition-all duration-300 rounded-full border-primary/20"
+                          >
+                            <a href={project.url} target="_blank" rel="noopener noreferrer" className="flex items-center justify-center whitespace-nowrap">
+                              <ExternalLink className="w-4 h-4 mr-2" />
+                              View Project
+                            </a>
+                          </Button>
+                        </motion.div>
+                      )}
+                    </div>
+                  </CardFooter>
+                </Card>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Contact Section */}
+      <section id="contact" className="py-20 bg-background">
+        <div className="container mx-auto px-6 text-center">
+          <motion.h2 
+            className="text-3xl md:text-4xl font-bold text-primary mb-8"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            whileHover={{ 
+              scale: 1.05,
+              y: -2
+            }}
+            transition={{
+              type: "spring",
+              stiffness: 300,
+              damping: 10
+            }}
+            viewport={{ once: true }}
+          >
+            Find Me Here!
+          </motion.h2>
+          <motion.p 
+            className="text-xl text-foreground mb-12 max-w-2xl mx-auto leading-relaxed">
+            Interested in collaborating or have a position that might be a good fit? I'd love to hear from you!
+          </motion.p>
+          <motion.div 
+            className="flex flex-wrap justify-center gap-4"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.4 }}
+            viewport={{ once: true }}
+          >
+            <Button
+              asChild
+              variant="outline"
+              className="bg-background/50 border-primary text-primary hover:bg-primary/10 transition-colors duration-300 rounded-full text-lg px-6 py-2"
+            >
+              <a href="mailto:liamhdwight@gmail.com" className="flex items-center">
+                <Mail className="w-5 h-5 mr-2" />
+                Email Me
+              </a>
+            </Button>
+            <Button
+              variant="outline"
+              className="bg-background/50 border-primary text-primary hover:bg-primary/10 transition-colors duration-300 rounded-full text-lg px-6 py-2"
+              onClick={() => window.open('https://linkedin.com/in/liam-dwight', '_blank')}
+            >
+              <Linkedin className="w-5 h-5 mr-2" />
+              LinkedIn
+            </Button>
+            <Button
+              variant="outline"
+              className="bg-background/50 border-primary text-primary hover:bg-primary/10 transition-colors duration-300 rounded-full text-lg px-6 py-2"
+              onClick={() => window.open('https://github.com/lame-o', '_blank')}
+            >
+              <Github className="w-5 h-5 mr-2" />
+              GitHub
+            </Button>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Footer */}
+      <footer className="py-8 text-center text-foreground/80 bg-muted/30 relative">
+        <div className="container mx-auto px-6">
+          <p className="leading-relaxed">
+            &copy; {new Date().getFullYear()} Liam Dwight. Built with{' '}
+            <a href="https://nextjs.org" target="_blank" rel="noopener noreferrer" className="font-medium text-primary hover:text-primary/80 transition-colors">
+              Next.js
+            </a>
+            {' '},{' '}
+            <a href="https://tailwindcss.com" target="_blank" rel="noopener noreferrer" className="font-medium text-primary hover:text-primary/80 transition-colors">
+              Tailwind CSS
+            </a>
+            {', '}and deployed with{' '}
+            <a href="https://vercel.com" target="_blank" rel="noopener noreferrer" className="font-medium text-primary hover:text-primary/80 transition-colors">
+              Vercel
+            </a>
+          </p>
+        </div>
+        <motion.div 
+          className="absolute bottom-4 right-4"
+          whileHover={{ scale: 1.1, rotate: 10 }}
+          transition={{ duration: 0.2 }}
+        >
+          <Image
+            src="/images/gifs/dancing-cat.gif"
+            alt="Dancing Cat"
+            width={60}
+            height={60}
+            className="rounded-full"
+          />
+        </motion.div>
+      </footer>
+      <style jsx>{`
+        .interactive-text span {
+          display: inline-block;
+        }
+        .interactive-text span:hover {
+          transform: scale(1.05);
+        }
+      `}</style>
+    </main>
+  )
+}
