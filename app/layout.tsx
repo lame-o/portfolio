@@ -7,6 +7,12 @@ const inter = Inter({ subsets: ['latin'] })
 export const metadata: Metadata = {
   title: 'Liam Dwight - Portfolio',
   description: 'Full-stack developer portfolio showcasing projects and skills',
+  icons: {
+    icon: [
+      { url: '/images/favicon.png', sizes: '32x32' },
+      { url: '/images/favicon.png', sizes: '16x16' },
+    ],
+  },
 }
 
 export default function RootLayout({
