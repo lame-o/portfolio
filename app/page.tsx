@@ -250,7 +250,7 @@ export default function Home() {
                 In my spare time I enjoy climbing 🧗, playing video games 🎮, watching soccer ⚽, and of course annoying my girlfriend's dog 🐶
               </p>
               <div className="flex flex-wrap gap-3">
-                {["v0", "Windsurf", "Cursor", "Vercel", "Render"].map((tech, index) => (
+                {["v0", "Windsurf", "Cursor", "Vercel", "Pinecone", "Render"].map((tech, index) => (
                   <Badge 
                     key={index}
                     variant="secondary" 
