@@ -244,13 +244,13 @@ export default function Home() {
                 Hello! I'm Liam, a new <span className="font-bold text-primary">UCSD</span> graduate and developer passionate about leveraging AI to build modern web applications. I love combining design with data, and have found myself using <span className="font-bold text-primary">AI</span> to accelerate <span className="font-bold text-primary">user-centered design</span> solutions for complex problems.
               </p>
               <p className="text-lg leading-relaxed text-foreground/90">
-                With experience in full stack development and the full product lifecycle (beginning with <span className="font-bold text-primary">user research</span> and problem interviews), I've also been interested in the uses of <span className="font-bold text-primary">RAG</span> and <span className="font-bold text-primary">Vector Databases</span>. I'm always eager to learn new technologies and improve my <span className="font-bold text-primary">Prompt Engineering</span>, below are some of the tools I'm currently using  to help.
+                With experience in full stack development and the full product lifecycle (beginning with <span className="font-bold text-primary">user research</span> and problem interviews), I've also been interested in the uses of <a href="https://github.com/lame-o/rag_demo" className="font-bold text-primary hover:underline">RAG</a> and <a href="https://github.com/lame-o/pinecone-movie-test" className="font-bold text-primary hover:underline">Vector Databases</a>. I'm always eager to learn new technologies and improve my <span className="font-bold text-primary">Prompt Engineering</span>, below are some of the tools I'm currently using  to help.
               </p>
               <p className="text-lg leading-relaxed text-foreground/90">
                 In my spare time I enjoy climbing 🧗, playing video games 🎮, watching soccer ⚽, and of course annoying my girlfriend's dog 🐶
               </p>
               <div className="flex flex-wrap gap-3">
-                {["v0", "Windsurf", "Cursor", "Vercel", "Pinecone", "Render"].map((tech, index) => (
+                {["v0", "Windsurf", "Vercel", "Pinecone","Supabase", "Render"].map((tech, index) => (
                   <Badge 
                     key={index}
                     variant="secondary" 
