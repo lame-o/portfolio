@@ -42,6 +42,30 @@ export default function Home() {
       github: "https://github.com/lame-o/samurai-transformer",
       image: "/images/samurai.png" 
     },
+    { 
+      title: "Water Tracker", 
+      desc: "Water intake tracker with database and user auth", 
+      tech: ["Supabase", "HTML5", "CSS3", "JavaScript"], 
+      url: "https://water-tracker-db.vercel.app/", 
+      github: "https://github.com/lame-o/water-tracker-db",
+      image: "/images/watertracker.png" 
+    },
+    { 
+      title: "RAG Demo", 
+      desc: "Real-time weather data visualization with historical tracking", 
+      tech: ["Python", "Pinecone", "OpenAI"], 
+      url: "https://github.com/lame-o/rag_demo", 
+      github: "https://github.com/lame-o/rag_demo",
+      image: "/images/ragdemo1.png" 
+    },
+    { 
+      title: "Movie Recommender", 
+      desc: "Collaborative task management app with real-time updates", 
+      tech: ["Python", "Pinecone", "OpenAI"], 
+      url: "https://github.com/lame-o/pinecone-movie-test", 
+      github: "https://github.com/lame-o/pinecone-movie-test",
+      image: "/images/taskmaster.png" 
+    },
   ]
 
   return (
@@ -332,6 +356,8 @@ export default function Home() {
                       project.title === "Code4Dummies" ? "bg-[#eee5ff] hover:bg-[#e5dbff] border-[#d4c5ff] border-2" :
                       project.title === "Prompt.ly" ? "bg-[#fffbe6] hover:bg-[#fff7cc] border-[#ffeb99] border-2" :
                       project.title === "AI Image Editor" ? "bg-[#ffe6e6] hover:bg-[#ffd6d6] border-[#ffb3b3] border-2" :
+                      project.title === "Water Tracker" ? "bg-[#e6f7ff] hover:bg-[#ccf0ff] border-[#87ceeb] border-2" :
+                      project.title === "RAG Demo" || project.title === "Movie Recommender" ? "bg-[#f5f5f5] hover:bg-[#e6e6e6] border-[#cccccc] border-2" :
                       "bg-card"}`}
                 >
                   <CardContent className="p-6 flex-grow">
