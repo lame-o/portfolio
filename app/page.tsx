@@ -60,11 +60,11 @@ export default function Home() {
     },
     { 
       title: "Movie Recommender", 
-      desc: "Collaborative task management app with real-time updates", 
+      desc: "Movie recommender using Pinecone and OpenAI", 
       tech: ["Python", "Pinecone", "OpenAI"], 
       url: "https://github.com/lame-o/pinecone-movie-test", 
       github: "https://github.com/lame-o/pinecone-movie-test",
-      image: "/images/taskmaster.png" 
+      image: "/images/movierecommender.png" 
     },
   ]
 
