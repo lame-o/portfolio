@@ -52,7 +52,7 @@ export default function Home() {
     },
     { 
       title: "RAG Demo", 
-      desc: "Real-time weather data visualization with historical tracking", 
+      desc: "RAG chatbot demo", 
       tech: ["Python", "Pinecone", "OpenAI"], 
       url: "https://github.com/lame-o/rag_demo", 
       github: "https://github.com/lame-o/rag_demo",
