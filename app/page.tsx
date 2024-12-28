@@ -8,6 +8,8 @@ import { Card, CardContent, CardFooter } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { smoothScroll } from "@/utils/smoothScroll"
 import InteractiveHoverButton from "@/components/ui/interactive-hover-button"
+import ShineBorder from "@/components/ui/shine-border"
+import DotPattern from "@/components/ui/dot-pattern"
 
 export default function Home() {
   const projects = [
@@ -70,9 +72,9 @@ export default function Home() {
   ]
 
   return (
-    <main className="min-h-screen bg-background text-foreground antialiased">
+    <main className="min-h-screen text-zinc-900 antialiased">
       {/* Header / Navigation */}
-      <header className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-md border-b border-border/40">
+      <header className="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-md border-b border-zinc-200">
         <nav className="container mx-auto px-6 h-16">
           <div className="flex items-center justify-between h-full">
             <div className="flex items-center gap-2">
@@ -145,7 +147,18 @@ export default function Home() {
       </header>
 
       {/* Hero Section */}
-      <section id="hero" className="py-20 bg-background">
+      <section id="hero" className="py-20 bg-white relative">
+        <div className="absolute inset-0 pointer-events-none overflow-hidden">
+          <div className="absolute inset-0 bg-gradient-to-r from-transparent via-zinc-100 to-transparent" />
+          <DotPattern 
+            width={25} 
+            height={25} 
+            cx={2.5} 
+            cy={2.5} 
+            cr={2.5}
+            className="fill-black/[0.05] [mask-image:radial-gradient(ellipse_at_center,black_50%,transparent_80%)]" 
+          />
+        </div>
         <div className="container mx-auto px-4 relative z-0">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -154,13 +167,23 @@ export default function Home() {
             className="text-center space-y-8"
           >
             <div className="w-[250px] h-[250px] relative mx-auto">
-              <Image
-                src="/images/profile.jpeg"
-                alt="Your Name"
-                fill
-                className="rounded-full object-cover border-4 border-primary shadow-[0_20px_40px_rgba(8,_112,_184,_0.95)] hover:scale-105 transition-transform duration-300"
-                priority
-              />
+              <ShineBorder 
+                borderRadius={999} 
+                borderWidth={4}
+                duration={11}
+                color={["#A07CFE", "#FE8FB5", "#FFBE7B"]}
+                className="!min-h-0 !min-w-0 !p-1 !bg-transparent w-full h-full rounded-full overflow-hidden"
+              >
+                <div className="w-full h-full relative rounded-full overflow-hidden">
+                  <Image
+                    src="/images/profile.jpeg"
+                    alt="Your Name"
+                    fill
+                    className="rounded-full object-cover hover:scale-105 transition-transform duration-300"
+                    priority
+                  />
+                </div>
+              </ShineBorder>
             </div>
             <div className="space-y-4">
               <h1 className="text-4xl md:text-6xl font-bold">
@@ -227,7 +250,7 @@ export default function Home() {
               <InteractiveHoverButton
                 text="Let's Connect!"
                 onClick={() => smoothScroll('contact')}
-                className="bg-transparent text-primary hover:text-primary-foreground w-48 py-3 text-lg shadow-lg hover:shadow-xl hover:shadow-primary/20"
+                className="bg-white text-primary hover:text-primary-foreground w-48 py-3 text-lg shadow-lg hover:shadow-xl hover:shadow-primary/20"
               />
             </motion.div>
           </motion.div>
@@ -235,7 +258,7 @@ export default function Home() {
       </section>
 
       {/* About Section */}
-      <section id="about" className="py-20 bg-muted/30">
+      <section id="about" className="py-20 bg-zinc-50">
         <div className="container mx-auto px-6">
           <motion.h2 
             className="text-3xl md:text-4xl font-bold text-primary mb-12 text-center"
@@ -320,8 +343,19 @@ export default function Home() {
       </section>
 
       {/* Web App Deployments Section */}
-      <section id="web-apps" className="py-20 bg-background">
-        <div className="container mx-auto px-6">
+      <section id="web-apps" className="py-20 bg-white relative">
+        <div className="absolute inset-0 pointer-events-none overflow-hidden">
+          <div className="absolute inset-0 bg-gradient-to-r from-transparent via-zinc-100 to-transparent" />
+          <DotPattern 
+            width={25} 
+            height={25} 
+            cx={2.5} 
+            cy={2.5} 
+            cr={2.5}
+            className="fill-black/[0.05] [mask-image:radial-gradient(ellipse_at_center,black_50%,transparent_80%)]" 
+          />
+        </div>
+        <div className="container mx-auto px-6 relative">
           <motion.h2 
             className="text-3xl md:text-4xl font-bold text-primary mb-12 text-center"
             initial={{ opacity: 0, y: 20 }}
@@ -349,7 +383,7 @@ export default function Home() {
                 viewport={{ once: true }}
               >
                 <Card 
-                  className={`overflow-hidden h-full flex flex-col transition-all duration-300 hover:shadow-lg hover:-translate-y-1 hover:bg-accent/5
+                  className={`overflow-hidden h-full flex flex-col transition-all duration-300 hover:shadow-lg hover:-translate-y-1 hover:bg-accent/5 border-2
                     ${project.title === "PantryPal" ? "bg-[#f0fff4] hover:bg-[#e6ffed] border-[#bae6b3] border-2" : 
                       project.title === "Code4Dummies" ? "bg-[#eee5ff] hover:bg-[#e5dbff] border-[#d4c5ff] border-2" :
                       project.title === "Prompt.ly" ? "bg-[#fffbe6] hover:bg-[#fff7cc] border-[#ffeb99] border-2" :
@@ -439,7 +473,7 @@ export default function Home() {
       </section>
 
       {/* Projects Section */}
-      <section id="projects" className="py-20 bg-muted/30">
+      <section id="projects" className="py-20 bg-zinc-50">
         <div className="container mx-auto px-6">
           <motion.h2 
             className="text-3xl md:text-4xl font-bold text-primary mb-12 text-center"
@@ -537,8 +571,19 @@ export default function Home() {
       </section>
 
       {/* Contact Section */}
-      <section id="contact" className="py-20 bg-background">
-        <div className="container mx-auto px-6 text-center">
+      <section id="contact" className="py-20 bg-white relative">
+        <div className="absolute inset-0 pointer-events-none overflow-hidden">
+          <div className="absolute inset-0 bg-gradient-to-r from-transparent via-zinc-100 to-transparent" />
+          <DotPattern 
+            width={25} 
+            height={25} 
+            cx={2.5} 
+            cy={2.5} 
+            cr={2.5}
+            className="fill-black/[0.05] [mask-image:radial-gradient(ellipse_at_center,black_50%,transparent_80%)]" 
+          />
+        </div>
+        <div className="container mx-auto px-6 text-center relative">
           <motion.h2 
             className="text-3xl md:text-4xl font-bold text-primary mb-8"
             initial={{ opacity: 0, y: 20 }}
@@ -570,7 +615,7 @@ export default function Home() {
             <Button
               asChild
               variant="outline"
-              className="bg-background/50 border-primary text-primary hover:bg-primary/10 transition-colors duration-300 rounded-full text-lg px-6 py-2"
+              className="bg-white-900/50 border-primary text-primary hover:bg-primary/10 transition-colors duration-300 rounded-full text-lg px-6 py-2"
             >
               <a href="mailto:liamhdwight@gmail.com" className="flex items-center">
                 <Mail className="w-5 h-5 mr-2" />
@@ -579,7 +624,7 @@ export default function Home() {
             </Button>
             <Button
               variant="outline"
-              className="bg-background/50 border-primary text-primary hover:bg-primary/10 transition-colors duration-300 rounded-full text-lg px-6 py-2"
+              className="bg-zwhite-900/50 border-primary text-primary hover:bg-primary/10 transition-colors duration-300 rounded-full text-lg px-6 py-2"
               onClick={() => window.open('https://linkedin.com/in/liam-dwight', '_blank')}
             >
               <Linkedin className="w-5 h-5 mr-2" />
@@ -587,7 +632,7 @@ export default function Home() {
             </Button>
             <Button
               variant="outline"
-              className="bg-background/50 border-primary text-primary hover:bg-primary/10 transition-colors duration-300 rounded-full text-lg px-6 py-2"
+              className="bg-white-900/50 border-primary text-primary hover:bg-primary/10 transition-colors duration-300 rounded-full text-lg px-6 py-2"
               onClick={() => window.open('https://github.com/lame-o', '_blank')}
             >
               <Github className="w-5 h-5 mr-2" />
@@ -598,7 +643,7 @@ export default function Home() {
       </section>
 
       {/* Footer */}
-      <footer className="py-8 text-center text-foreground/80 bg-muted/30 relative">
+      <footer className="py-8 text-center text-zinc-600 bg-zinc-50 relative">
         <div className="container mx-auto px-6">
           <p className="leading-relaxed">
             &copy; {new Date().getFullYear()} Liam Dwight. Built with{' '}
