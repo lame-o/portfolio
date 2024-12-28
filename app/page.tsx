@@ -10,6 +10,7 @@ import { smoothScroll } from "@/utils/smoothScroll"
 import InteractiveHoverButton from "@/components/ui/interactive-hover-button"
 import ShineBorder from "@/components/ui/shine-border"
 import DotPattern from "@/components/ui/dot-pattern"
+import LetterPullup from "@/components/ui/letter-pullup"
 
 export default function Home() {
   const projects = [
@@ -187,36 +188,11 @@ export default function Home() {
             </div>
             <div className="space-y-4">
               <h1 className="text-4xl md:text-6xl font-bold">
-                <motion.span 
-                  initial={{ opacity: 1 }}
-                  whileHover={{ 
-                    scale: 1.1,
-                    y: -5
-                  }}
-                  transition={{
-                    type: "spring",
-                    stiffness: 300,
-                    damping: 10
-                  }}
+                <LetterPullup 
+                  words="Liam Dwight"
                   className="inline-block text-primary"
-                >
-                  Liam
-                </motion.span>{' '}
-                <motion.span 
-                  initial={{ opacity: 1 }}
-                  whileHover={{ 
-                    scale: 1.1,
-                    y: -5
-                  }}
-                  transition={{
-                    type: "spring",
-                    stiffness: 300,
-                    damping: 10
-                  }}
-                  className="inline-block text-primary"
-                >
-                  Dwight
-                </motion.span>
+                  delay={0.075}
+                />
               </h1>
               <motion.p 
                 className="text-xl md:text-2xl text-foreground max-w-2xl mx-auto"
