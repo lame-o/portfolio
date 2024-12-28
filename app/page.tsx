@@ -7,6 +7,7 @@ import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardFooter } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { smoothScroll } from "@/utils/smoothScroll"
+import InteractiveHoverButton from "@/components/ui/interactive-hover-button"
 
 export default function Home() {
   const projects = [
@@ -223,14 +224,11 @@ export default function Home() {
                 damping: 15
               }}
             >
-              <Button
-                size="lg"
-                className="bg-primary text-primary-foreground hover:bg-primary/90 transition-all duration-300 
-                rounded-full text-lg px-8 py-3 shadow-lg hover:shadow-xl hover:shadow-primary/20"
+              <InteractiveHoverButton
+                text="Let's Connect!"
                 onClick={() => smoothScroll('contact')}
-              >
-                Let's Connect!
-              </Button>
+                className="bg-transparent text-primary hover:text-primary-foreground w-48 py-3 text-lg shadow-lg hover:shadow-xl hover:shadow-primary/20"
+              />
             </motion.div>
           </motion.div>
         </div>
