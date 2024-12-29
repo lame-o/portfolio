@@ -591,7 +591,7 @@ export default function Home() {
             <Button
               asChild
               variant="outline"
-              className="bg-white-900/50 border-primary text-primary hover:bg-primary/10 transition-colors duration-300 rounded-full text-lg px-6 py-2"
+              className="bg-white-900/50 border-primary text-primary hover:ring-2 hover:ring-primary/90 hover:ring-offset-2 transition-all duration-300 rounded-full text-lg px-6 py-2"
             >
               <a href="mailto:liamhdwight@gmail.com" className="flex items-center">
                 <Mail className="w-5 h-5 mr-2" />
@@ -600,7 +600,7 @@ export default function Home() {
             </Button>
             <Button
               variant="outline"
-              className="bg-zwhite-900/50 border-primary text-primary hover:bg-primary/10 transition-colors duration-300 rounded-full text-lg px-6 py-2"
+              className="bg-zwhite-900/50 border-primary text-primary hover:ring-2 hover:ring-primary/90 hover:ring-offset-2 transition-all duration-300 rounded-full text-lg px-6 py-2"
               onClick={() => window.open('https://linkedin.com/in/liam-dwight', '_blank')}
             >
               <Linkedin className="w-5 h-5 mr-2" />
@@ -608,7 +608,7 @@ export default function Home() {
             </Button>
             <Button
               variant="outline"
-              className="bg-white-900/50 border-primary text-primary hover:bg-primary/10 transition-colors duration-300 rounded-full text-lg px-6 py-2"
+              className="bg-white-900/50 border-primary text-primary hover:ring-2 hover:ring-primary/90 hover:ring-offset-2 transition-all duration-300 rounded-full text-lg px-6 py-2"
               onClick={() => window.open('https://github.com/lame-o', '_blank')}
             >
               <Github className="w-5 h-5 mr-2" />
