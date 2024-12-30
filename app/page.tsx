@@ -1,7 +1,8 @@
 'use client'
 
+import * as React from 'react'
 import Image from 'next/image'
-import { Mail, Github, Linkedin, Code, Server, Zap, Globe, ArrowUpRight, ArrowRight, ExternalLink } from 'lucide-react'
+import { Mail, Github, Linkedin, Code, Server, Zap, Globe, ArrowUpRight, ArrowRight, ExternalLink, ChevronUp } from 'lucide-react'
 import { motion } from 'framer-motion'
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardFooter } from "@/components/ui/card"
@@ -72,6 +73,21 @@ export default function Home() {
       image: "/images/movierecommender.png" 
     },
   ]
+
+  const [showScrollTop, setShowScrollTop] = React.useState(false);
+
+  React.useEffect(() => {
+    const handleScroll = () => {
+      setShowScrollTop(window.scrollY > 500);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
 
   return (
     <main className="min-h-screen text-zinc-900 antialiased">
@@ -619,6 +635,27 @@ export default function Home() {
           </motion.div>
         </div>
       </section>
+
+      {/* Scroll to top button */}
+      <motion.div
+        className="fixed bottom-8 right-20 z-50"
+        initial={{ opacity: 0, scale: 0.8 }}
+        animate={{ 
+          opacity: showScrollTop ? 1 : 0,
+          scale: showScrollTop ? 1 : 0.8,
+          pointerEvents: showScrollTop ? 'auto' : 'none'
+        }}
+        transition={{ duration: 0.2 }}
+      >
+        <Button
+          variant="outline"
+          size="icon"
+          className="rounded-full p-2 bg-white/80 backdrop-blur-sm border-primary text-primary hover:bg-primary/10 hover:ring-2 hover:ring-primary/90 hover:ring-offset-2"
+          onClick={scrollToTop}
+        >
+          <ChevronUp className="h-5 w-5" />
+        </Button>
+      </motion.div>
 
       {/* Footer */}
       <footer className="py-8 text-center text-zinc-600 bg-zinc-50 relative">
