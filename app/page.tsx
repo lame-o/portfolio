@@ -13,6 +13,7 @@ import ShineBorder from "@/components/ui/shine-border"
 import DotPattern from "@/components/ui/dot-pattern"
 import LetterPullup from "@/components/ui/letter-pullup"
 import RetroGrid from "@/components/ui/retro-grid"
+import { ConfettiButton } from "@/components/ui/confetti"
 
 export default function Home() {
   const projects = [
@@ -677,16 +678,33 @@ export default function Home() {
         </div>
         <motion.div 
           className="absolute bottom-4 right-4"
-          whileHover={{ scale: 1.1, rotate: 10 }}
           transition={{ duration: 0.2 }}
         >
-          <Image
-            src="/images/gifs/dancing-cat.gif"
-            alt="Dancing Cat"
-            width={60}
-            height={60}
-            className="rounded-full"
-          />
+          <motion.div
+            className="inline-block"
+            transition={{ duration: 0.2 }}
+          >
+            <ConfettiButton
+              className="bg-transparent hover:bg-transparent p-0 border-none shadow-none"
+              options={{
+                spread: 360,
+                ticks: 100,
+                gravity: 0.5,
+                decay: 0.94,
+                startVelocity: 30,
+                particleCount: 100,
+                scalar: 1
+              }}
+            >
+              <Image
+                src="/images/gifs/dancing-cat.gif"
+                alt="Dancing Cat"
+                width={60}
+                height={60}
+                className="rounded-full hover:scale-110 transition-transform duration-200"
+              />
+            </ConfettiButton>
+          </motion.div>
         </motion.div>
       </footer>
       <style jsx>{`
