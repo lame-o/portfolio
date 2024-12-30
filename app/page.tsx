@@ -478,7 +478,7 @@ export default function Home() {
               },
               { 
                 title: " 📊 LiveDataViz ", 
-                desc: "Group design project focused on enhancing data visualization tools for collaborative and live presentation settings using AI. Developed and refined interactive wireframes and sketches over several months, leveraging user-centered design principles. Delivered a fully functional Figma prototype showcasing improved interaction techniques, such as real-time synchronization, data annotation, and collaborative workflows", 
+                desc: "Group design project focused on enhancing data visualization tools for collaborative and live presentation settings using AI. Developed and refined interactive wireframes and sketches over several months, leveraging user-centered design principles. Delivered a fully functional Figma prototype showcasing improved interaction techniques, such as real-time synchronization, data annotation, and collaborative workflows.", 
                 tech: "Figma",
                 url: "https://tinyurl.com/LiveDataViz" // Replace with your actual URL
               },
