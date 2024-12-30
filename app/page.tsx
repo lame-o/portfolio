@@ -11,6 +11,7 @@ import InteractiveHoverButton from "@/components/ui/interactive-hover-button"
 import ShineBorder from "@/components/ui/shine-border"
 import DotPattern from "@/components/ui/dot-pattern"
 import LetterPullup from "@/components/ui/letter-pullup"
+import RetroGrid from "@/components/ui/retro-grid"
 
 export default function Home() {
   const projects = [
@@ -547,17 +548,18 @@ export default function Home() {
       </section>
 
       {/* Contact Section */}
-      <section id="contact" className="py-20 bg-white relative">
-        <div className="absolute inset-0 pointer-events-none overflow-hidden">
+      <section id="contact" className="py-20 bg-white relative overflow-hidden">
+        <div className="absolute inset-0 pointer-events-none">
           <div className="absolute inset-0 bg-gradient-to-r from-transparent via-zinc-100 to-transparent" />
-          <DotPattern 
-            width={25} 
-            height={25} 
-            cx={2.5} 
-            cy={2.5} 
-            cr={2.5}
-            className="fill-black/[0.05] [mask-image:radial-gradient(ellipse_at_center,black_50%,transparent_80%)]" 
+          <RetroGrid 
+            className="w-full h-full scale-150 -translate-y-1/4"
+            angle={80}
+            cellSize={40}
+            opacity={0.2}
+            lightLineColor="#000"
+            darkLineColor="#000"
           />
+          <div className="absolute inset-0 bg-gradient-to-b from-white via-transparent to-white" />
         </div>
         <div className="container mx-auto px-6 text-center relative">
           <motion.h2 
