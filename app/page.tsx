@@ -289,7 +289,7 @@ export default function Home() {
                 In my spare time I enjoy climbing 🧗, playing video games 🎮, watching soccer ⚽, and of course annoying my girlfriend's dog 🐶
               </p>
               <div className="flex flex-wrap gap-3">
-                {["v0", "Windsurf", "Vercel", "Pinecone","Supabase", "Render"].map((tech, index) => (
+                {["Next.js", "TypeScript", "Python","v0", "Windsurf", "Vercel", "Pinecone","Supabase"].map((tech, index) => (
                   <Badge 
                     key={index}
                     variant="secondary" 
