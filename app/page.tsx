@@ -2,7 +2,7 @@
 
 import * as React from 'react'
 import Image from 'next/image'
-import { Mail, Github, Linkedin, Code, Server, Zap, Globe, ArrowUpRight, ArrowRight, ExternalLink, ChevronUp } from 'lucide-react'
+import { Mail, Github, Linkedin, Code, Server, Zap, Globe, ArrowUpRight, ArrowRight, ExternalLink, ChevronUp, Menu, X } from 'lucide-react'
 import { motion } from 'framer-motion'
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardFooter } from "@/components/ui/card"
@@ -76,6 +76,7 @@ export default function Home() {
   ]
 
   const [showScrollTop, setShowScrollTop] = React.useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = React.useState(false);
 
   React.useEffect(() => {
     const handleScroll = () => {
@@ -94,9 +95,9 @@ export default function Home() {
     <main className="min-h-screen text-zinc-900 antialiased">
       {/* Header / Navigation */}
       <header className="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-md border-b border-zinc-200">
-        <nav className="container mx-auto px-6 h-16">
-          <div className="flex items-center justify-between h-full">
-            <div className="flex items-center gap-2">
+        <nav className="container mx-auto px-3 sm:px-6 h-16">
+          <div className="flex items-center justify-between h-full gap-2">
+            <div className="flex items-center gap-1 sm:gap-2">
               <motion.div
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
@@ -152,7 +153,8 @@ export default function Home() {
                 </Button>
               </motion.div>
             </div>
-            <div className="flex items-center space-x-4">
+
+            <div className="flex items-center gap-1 sm:gap-4">
               {['About', 'Web Apps', 'Projects', 'Contact'].map((item) => (
                 <motion.div
                   key={item}
@@ -166,7 +168,8 @@ export default function Home() {
                 >
                   <Button
                     variant="ghost"
-                    className="rounded-full hover:bg-primary hover:text-primary-foreground transition-all duration-300"
+                    size="sm"
+                    className="rounded-full hover:bg-primary hover:text-primary-foreground transition-all duration-300 px-2 sm:px-4"
                     onClick={() => {
                       const element = document.getElementById(item.toLowerCase().replace(' ', '-'));
                       if (element) {
@@ -325,7 +328,7 @@ export default function Home() {
                 whileInView={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.6, delay: 0.2 }}
                 viewport={{ once: true }}
-                className="absolute right-0 top-0 w-[350px] h-[450px]"
+                className="absolute right-0 top-0 bottom-0 w-[350px] h-[450px]"
               >
                 <Image
                   src="/images/professional-photo.jpeg"
@@ -418,7 +421,7 @@ export default function Home() {
                     <div className="flex flex-wrap gap-2 mb-4">
                       {project.tech.map((tech, index) => (
                         <Badge 
-                          key={index} 
+                          key={index}
                           variant="secondary" 
                           className="bg-primary/15 hover:bg-primary/25 text-primary font-medium px-3 py-1 rounded-full border border-primary/20 transition-all duration-300"
                         >
