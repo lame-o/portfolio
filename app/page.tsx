@@ -17,6 +17,14 @@ import { ConfettiButton } from "@/components/ui/confetti"
 
 export default function Home() {
   const projects = [
+    {
+      title: "Discord Status Badge",
+      desc: "Dynamic badge displaying real-time Discord activity status in GitHub READMEs",
+      tech: ["Python", "Flask", "Discord API", "Redis", "Gunicorn"],
+      url: "https://dcmd-livestatus.onrender.com/discord-status",
+      github: "https://github.com/lame-o/dcmd-livestatus",
+      image: "/images/discord-status.png"
+    },
     { 
       title: "PantryPal", 
       desc: "AI tool for College students with limited ingredients and cooking experience", 
@@ -386,7 +394,7 @@ export default function Home() {
             }}
             viewport={{ once: true }}
           >
-            My AI Web Apps
+            My Web Apps
           </motion.h2>
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             {projects.map((project, i) => (
@@ -399,7 +407,8 @@ export default function Home() {
               >
                 <Card 
                   className={`overflow-hidden h-full flex flex-col transition-all duration-300 hover:shadow-lg hover:-translate-y-1 hover:bg-accent/5 border-2
-                    ${project.title === "PantryPal" ? "bg-[#f0fff4] hover:bg-[#e6ffed] border-[#bae6b3] border-2" : 
+                    ${project.title === "Discord Status Badge" ? "bg-[#e6e9ff] hover:bg-[#d9deff] border-[#7289da] border-2" :
+                      project.title === "PantryPal" ? "bg-[#f0fff4] hover:bg-[#e6ffed] border-[#bae6b3] border-2" : 
                       project.title === "Code4Dummies" ? "bg-[#eee5ff] hover:bg-[#e5dbff] border-[#d4c5ff] border-2" :
                       project.title === "Prompt.ly" ? "bg-[#fffbe6] hover:bg-[#fff7cc] border-[#ffeb99] border-2" :
                       project.title === "AI Image Editor" ? "bg-[#ffe6e6] hover:bg-[#ffd6d6] border-[#ffb3b3] border-2" :
@@ -413,7 +422,8 @@ export default function Home() {
                         src={project.image}
                         alt={project.title}
                         layout="fill"
-                        objectFit="cover"
+                        objectFit="contain"
+                        className="bg-background"
                       />
                     </div>
                     <h3 className="font-bold text-xl mb-2 text-primary">{project.title}</h3>
