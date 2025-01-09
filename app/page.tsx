@@ -14,6 +14,7 @@ import DotPattern from "@/components/ui/dot-pattern"
 import LetterPullup from "@/components/ui/letter-pullup"
 import RetroGrid from "@/components/ui/retro-grid"
 import { ConfettiButton } from "@/components/ui/confetti"
+import SparklesText from "@/components/ui/sparkles-text"
 
 export default function Home() {
   const projects = [
@@ -408,11 +409,11 @@ export default function Home() {
                 <Card 
                   className={`overflow-hidden h-full flex flex-col transition-all duration-300 hover:shadow-lg hover:-translate-y-1 hover:bg-accent/5 border-2
                     ${project.title === "Discord Status Badge" ? "bg-[#e6e9ff] hover:bg-[#d9deff] border-[#7289da] border-2" :
-                      project.title === "PantryPal" ? "bg-[#f0fff4] hover:bg-[#e6ffed] border-[#bae6b3] border-2" : 
-                      project.title === "Code4Dummies" ? "bg-[#eee5ff] hover:bg-[#e5dbff] border-[#d4c5ff] border-2" :
-                      project.title === "Prompt.ly" ? "bg-[#fffbe6] hover:bg-[#fff7cc] border-[#ffeb99] border-2" :
-                      project.title === "AI Image Editor" ? "bg-[#ffe6e6] hover:bg-[#ffd6d6] border-[#ffb3b3] border-2" :
-                      project.title === "Water Tracker" ? "bg-[#e6f7ff] hover:bg-[#ccf0ff] border-[#87ceeb] border-2" :
+                      project.title === "PantryPal" ? "bg-[#f0fff4] hover:bg-[#e6ffed] border-[#cccccc] border-2" : 
+                      project.title === "Code4Dummies" ? "bg-[#eee5ff] hover:bg-[#e5dbff] border-[#cccccc] border-2" :
+                      project.title === "Prompt.ly" ? "bg-[#fffbe6] hover:bg-[#fff7cc] border-[#cccccc] border-2" :
+                      project.title === "AI Image Editor" ? "bg-[#ffe6e6] hover:bg-[#ffd6d6] border-[#cccccc] border-2" :
+                      project.title === "Water Tracker" ? "bg-[#e6f7ff] hover:bg-[#ccf0ff] border-[#cccccc] border-2" :
                       project.title === "RAG Demo" || project.title === "Movie Recommender" ? "bg-[#f5f5f5] hover:bg-[#e6e6e6] border-[#cccccc] border-2" :
                       "bg-card"}`}
                 >
@@ -426,7 +427,11 @@ export default function Home() {
                         className="bg-background"
                       />
                     </div>
-                    <h3 className="font-bold text-xl mb-2 text-primary">{project.title}</h3>
+                    {project.title === "Discord Status Badge" ? (
+                      <SparklesText text="Discord Status Badge" className="font-bold text-lg md:text-xl mb-2 text-primary" sparklesCount={4} />
+                    ) : (
+                      <h3 className="font-bold text-lg md:text-xl mb-2 text-primary">{project.title}</h3>
+                    )}
                     <p className="text-foreground mb-4 leading-relaxed">{project.desc}</p>
                     <div className="flex flex-wrap gap-2 mb-4">
                       {project.tech.map((tech, index) => (
@@ -547,7 +552,7 @@ export default function Home() {
               >
                 <Card className="overflow-hidden bg-card h-full flex flex-col transition-all duration-300 hover:shadow-lg hover:-translate-y-1 hover:bg-accent/5 border-2">
                   <CardContent className="p-6 flex-grow">
-                    <h3 className="font-bold text-xl mb-2 text-primary">{project.title}</h3>
+                    <h3 className="font-bold text-lg md:text-xl mb-2 text-primary">{project.title}</h3>
                     <p className="text-foreground mb-4 leading-relaxed">{project.desc}</p>
                     <div className="flex flex-wrap gap-2 mb-4">
                       {project.tech.split(', ').map((tech, index) => (
