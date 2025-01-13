@@ -279,14 +279,14 @@ export default function Home() {
               <Button
                 effect="gooeyRight"
                 onClick={() => window.open('/resume.pdf', '_blank')}
-                className="w-12 h-12 rounded-full bg-white text-primary hover:text-primary-foreground shadow-lg hover:shadow-xl hover:shadow-primary/20"
+                className="w-12 h-12 rounded-full bg-white text-primary hover:text-primary-foreground shadow-md hover:shadow-primary/10 font-bold"
               >
                 CV
               </Button>
               <InteractiveHoverButton
                 text="Let's Connect!"
                 onClick={() => smoothScroll('contact')}
-                className="bg-white text-primary hover:text-primary-foreground w-48 py-3 text-lg shadow-lg hover:shadow-xl hover:shadow-primary/20"
+                className="bg-white text-primary hover:text-primary-foreground w-48 py-3 text-lg shadow-md hover:shadow-primary/10"
               />
             </motion.div>
           </motion.div>
