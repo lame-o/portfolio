@@ -4,7 +4,7 @@ import * as React from 'react'
 import Image from 'next/image'
 import { Mail, Github, Linkedin, Code, Server, Zap, Globe, ArrowUpRight, ArrowRight, ExternalLink, ChevronUp, Menu, X } from 'lucide-react'
 import { motion } from 'framer-motion'
-import { Button } from "@/components/ui/button"
+import { Button } from "@/components/ui/enhanced-buttons"
 import { Card, CardContent, CardFooter } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { smoothScroll } from "@/utils/smoothScroll"
@@ -263,14 +263,26 @@ export default function Home() {
               </motion.p>
             </div>
             <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               transition={{
+                duration: 0.5,
+                delay: 0.6,
                 type: "spring",
                 stiffness: 400,
                 damping: 15
               }}
+              className="flex items-center justify-center gap-4"
             >
+              <Button
+                effect="gooeyRight"
+                onClick={() => window.open('/resume.pdf', '_blank')}
+                className="w-12 h-12 rounded-full bg-white text-primary hover:text-primary-foreground shadow-lg hover:shadow-xl hover:shadow-primary/20"
+              >
+                CV
+              </Button>
               <InteractiveHoverButton
                 text="Let's Connect!"
                 onClick={() => smoothScroll('contact')}
