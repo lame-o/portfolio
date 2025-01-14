@@ -13,6 +13,7 @@ import ShineBorder from "@/components/ui/shine-border"
 import DotPattern from "@/components/ui/dot-pattern"
 import LetterPullup from "@/components/ui/letter-pullup"
 import RetroGrid from "@/components/ui/retro-grid"
+import MountainParallax from "@/components/ui/mountain-parallax"
 import { ConfettiButton } from "@/components/ui/confetti"
 import SparklesText from "@/components/ui/sparkles-text"
 
@@ -196,105 +197,103 @@ export default function Home() {
       </header>
 
       {/* Hero Section */}
-      <section id="hero" className="py-20 bg-white relative">
-        <div className="absolute inset-0 pointer-events-none overflow-hidden">
-          <div className="absolute inset-0 bg-gradient-to-r from-transparent via-zinc-100 to-transparent" />
-          <DotPattern 
-            width={25} 
-            height={25} 
-            cx={2.5} 
-            cy={2.5} 
-            cr={2.5}
-            className="fill-black/[0.05] [mask-image:radial-gradient(ellipse_at_center,black_50%,transparent_80%)]" 
-          />
-        </div>
-        <div className="container mx-auto px-4 relative z-0">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            className="text-center space-y-8"
-          >
-            <div className="w-[250px] h-[250px] relative mx-auto">
-              <ShineBorder 
-                borderRadius={999} 
-                borderWidth={4}
-                duration={11}
-                color={["#A07CFE", "#FE8FB5", "#FFBE7B"]}
-                className="!min-h-0 !min-w-0 !p-1 !bg-transparent w-full h-full rounded-full overflow-hidden"
-              >
-                <div className="w-full h-full relative rounded-full overflow-hidden">
-                  <Image
-                    src="/images/profile.jpeg"
-                    alt="Your Name"
-                    fill
-                    className="rounded-full object-cover hover:scale-105 transition-transform duration-300"
-                    priority
-                  />
-                </div>
-              </ShineBorder>
-            </div>
-            <div className="space-y-4">
-              <h1 className="text-4xl md:text-6xl font-bold">
-                <LetterPullup 
-                  words="Liam Dwight"
-                  className="inline-block text-primary"
-                  delay={0.075}
-                />
-              </h1>
-              <motion.p 
-                className="text-xl md:text-2xl text-foreground max-w-2xl mx-auto"
-                whileHover={{ scale: 1.02 }}
-                transition={{ duration: 0.3 }}
-              >
-                <motion.span 
-                  className="inline-block"
-                  whileHover={{ 
-                    y: -2
-                  }}
-                  transition={{
-                    type: "spring",
-                    stiffness: 500,
-                    damping: 15
-                  }}
-                >
-                  UCSD grad combining AI and full stack web development.
-                </motion.span>
-              </motion.p>
-            </div>
+      <section className="min-h-screen relative bg-white">
+        {/* Mountain Parallax Background */}
+        <MountainParallax />
+        
+        {/* Overlay gradient for better text visibility */}
+        <div className="absolute inset-0 bg-white/30" />
+
+        {/* Content */}
+        <div className="relative z-10 min-h-screen flex items-center justify-center">
+          <div className="container mx-auto px-4 py-12 sm:py-16 md:py-20">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              transition={{
-                duration: 0.5,
-                delay: 0.6,
-                type: "spring",
-                stiffness: 400,
-                damping: 15
-              }}
-              className="flex items-center justify-center gap-4"
+              transition={{ duration: 0.8 }}
+              className="text-center space-y-6 sm:space-y-8 -mt-[15vh] sm:-mt-[20vh] md:-mt-[25vh] lg:-mt-[30vh]"
             >
-              <Button
-                effect="gooeyRight"
-                onClick={() => window.open('/resume.pdf', '_blank')}
-                className="w-12 h-12 rounded-full bg-white text-primary hover:text-primary-foreground shadow-md hover:shadow-primary/10 font-bold"
+              <div className="w-[150px] h-[150px] sm:w-[200px] sm:h-[200px] md:w-[250px] md:h-[250px] relative mx-auto">
+                <ShineBorder 
+                  borderRadius={999} 
+                  borderWidth={5}
+                  duration={7}
+                  color={["#785650", "#b16758", "#ffecd6"]}
+                  className="!min-h-0 !min-w-0 !p-1 !bg-transparent w-full h-full rounded-full overflow-hidden"
+                >
+                  <div className="w-full h-full relative rounded-full overflow-hidden">
+                    <Image
+                      src="/images/profile.jpeg"
+                      alt="Liam Dwight"
+                      fill
+                      className="rounded-full object-cover hover:scale-105 transition-transform duration-300"
+                      priority
+                    />
+                  </div>
+                </ShineBorder>
+              </div>
+              <div className="space-y-4">
+                <h1 className="text-4xl md:text-6xl font-bold">
+                  <LetterPullup 
+                    words="Liam Dwight"
+                    className="inline-block text-white [text-shadow:_0_0_10px_rgba(0,_0,_0,_0.7)]"
+                    delay={0.075}
+                  />
+                </h1>
+                <motion.p 
+                  className="text-xl md:text-2xl text-foreground max-w-2xl mx-auto font-semibold"
+                  whileHover={{ scale: 1.02 }}
+                  transition={{ duration: 0.3 }}
+                >
+                  <motion.span 
+                    className="inline-block text-white [text-shadow:_0_0_10px_rgba(0,_0,_0,_0.7)]"
+                    whileHover={{ 
+                      y: -2
+                    }}
+                    transition={{
+                      type: "spring",
+                      stiffness: 500,
+                      damping: 15
+                    }}
+                  >
+                    UCSD grad combining AI and full stack web development.
+                  </motion.span>
+                </motion.p>
+              </div>
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                transition={{
+                  duration: 0.5,
+                  delay: 0.6,
+                  type: "spring",
+                  stiffness: 400,
+                  damping: 15
+                }}
+                className="flex items-center justify-center gap-4"
               >
-                CV
-              </Button>
-              <InteractiveHoverButton
-                text="Let's Connect!"
-                onClick={() => smoothScroll('contact')}
-                className="bg-white text-primary hover:text-primary-foreground w-48 py-3 text-lg shadow-md hover:shadow-primary/10"
-              />
+                <Button
+                  effect="gooeyRight"
+                  onClick={() => window.open('/resume.pdf', '_blank')}
+                  className="w-12 h-12 rounded-full bg-white text-primary hover:text-primary-foreground shadow-md hover:shadow-primary/10 font-bold"
+                >
+                  CV
+                </Button>
+                <InteractiveHoverButton
+                  text="Let's Connect!"
+                  onClick={() => smoothScroll('contact')}
+                  className="bg-white text-primary hover:text-primary-foreground w-48 py-3 text-lg shadow-md hover:shadow-primary/10"
+                />
+              </motion.div>
             </motion.div>
-          </motion.div>
+          </div>
         </div>
       </section>
 
       {/* About Section */}
-      <section id="about" className="py-20 bg-zinc-50">
+      <section id="about" className="py-20 bg-zinc-50 relative z-50">
         <div className="container mx-auto px-6">
           <motion.h2 
             className="text-3xl md:text-4xl font-bold text-primary mb-12 text-center"

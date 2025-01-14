@@ -115,6 +115,38 @@
   background-clip: text;
 }
 
+/* Parallax styles */
+.landscape {
+  position: absolute;
+  z-index: 0;
+  contain: paint;
+  clip-path: inset(0);
+}
+
+.landscape__layer {
+  transform: translateY(calc(var(--scrollPos, 0) * var(--offset, 0)));
+  will-change: transform;
+  transition: transform 0.1s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .landscape__layer {
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 768px) {
+  .landscape__layer {
+    transform: translateY(calc(var(--scrollPos, 0) * var(--offset, 0) * 0.5));
+  }
+}
+
+@media (min-width: 2000px) {
+  .landscape__layer {
+    transform: translateY(calc(var(--scrollPos, 0) * var(--offset, 0) * 1.5));
+  }
+}
+
 @layer base {
   * {
     @apply border-border;
