@@ -12,7 +12,6 @@ import InteractiveHoverButton from "@/components/ui/interactive-hover-button"
 import ShineBorder from "@/components/ui/shine-border"
 import DotPattern from "@/components/ui/dot-pattern"
 import LetterPullup from "@/components/ui/letter-pullup"
-import RetroGrid from "@/components/ui/retro-grid"
 import MountainParallax from "@/components/ui/mountain-parallax"
 import { ConfettiButton } from "@/components/ui/confetti"
 import SparklesText from "@/components/ui/sparkles-text"
@@ -97,37 +96,7 @@ export default function Home() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const scrollToTop = () => {
-    const duration = 2000;
-    const startPosition = window.pageYOffset;
-    const startTime = performance.now();
-
-    const perfectEase = (t: number): number => {
-      // Smooth acceleration throughout with gentle start and end
-      const easeIn = t * t * t; // Cubic ease-in
-      const easeOut = 1 - Math.pow(1 - t, 4); // Quartic ease-out
-      
-      // Blend between ease-in and ease-out using a smooth cosine interpolation
-      const blend = (1 - Math.cos(t * Math.PI)) / 2;
-      return easeIn * (1 - blend) + easeOut * blend;
-    };
-
-    const scrollAnimation = (currentTime: number): void => {
-      const timeElapsed = currentTime - startTime;
-      const progress = Math.min(timeElapsed / duration, 1);
-
-      const run = perfectEase(progress);
-      const newPosition = startPosition * (1 - run);
-      
-      window.scrollTo(0, newPosition);
-
-      if (progress < 1) {
-        requestAnimationFrame(scrollAnimation);
-      }
-    };
-
-    requestAnimationFrame(scrollAnimation);
-  };
+  const scrollToTop = () => smoothScroll(null);
 
   return (
     <main className="min-h-screen text-zinc-900 antialiased">
@@ -419,14 +388,14 @@ export default function Home() {
           />
         </svg>
         <div className="absolute inset-0 pointer-events-none overflow-hidden">
-          <div className="absolute inset-0 bg-gradient-to-b from-[#ffecd6] via-#ffecd6 to-[#ffecd6]" />
+          <div className="absolute inset-0 bg-gradient-to-b from-[#ffecd6] via-[#ffecd6] to-[#ffecd6]" />
           <DotPattern 
             width={25} 
             height={25} 
             cx={2.5} 
             cy={2.5} 
-            cr={2.5}
-            className="fill-black/[0.05] [mask-image:radial-gradient(ellipse_at_center,#ffecd6_20%,#785650_80%)]" 
+            cr={4}
+            className="fill-black/[0.05] [mask-image:radial-gradient(circle_at_center,transparent_0%,rgba(0,0,0,0.3)_40%,rgba(0,0,0,0.7)_70%,black_100%)]" 
           />
         </div>
         <div className="container mx-auto px-6 relative">
@@ -673,14 +642,16 @@ export default function Home() {
             fill="#785650"
           />
         </svg>
-        <div className="absolute inset-0 pointer-events-none">
-          <RetroGrid 
-            className="absolute h-full w-full"
-            angle={80}
-            cellSize={40}
-            opacity={0.3}
+        <div className="absolute inset-0 pointer-events-none overflow-hidden">
+          <div className="absolute inset-0 bg-gradient-to-b from-[#ffecd6] via-[#ffecd6] to-[#ffecd6]" />
+          <DotPattern 
+            width={20} 
+            height={20} 
+            cx={2.5} 
+            cy={2.5} 
+            cr={4}
+            className="fill-black/[0.05] [mask-image:radial-gradient(circle_at_center,transparent_0%,rgba(0,0,0,0.3)_40%,rgba(0,0,0,0.7)_70%,black_100%)]" 
           />
-          <div className="absolute inset-0 bg-gradient-to-b from-[#ffecd6] via-transparent to-[#ffecd6]" />
         </div>
         <div className="container mx-auto px-6 text-center relative">
           <motion.h2 

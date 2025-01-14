@@ -1,29 +1,30 @@
 'use client'
 
 import { useEffect } from 'react';
+import { throttle, RAFManager } from '@/utils/performance';
 
 export const useParallax = () => {
   useEffect(() => {
     const root = document.documentElement;
-    let scrollPos: number;
-    let ticking = false;
+    const rafManager = RAFManager.getInstance();
+    let scrollPos = window.scrollY;
 
-    const updateScrollPos = () => {
-      if (!ticking) {
-        window.requestAnimationFrame(() => {
-          root.style.setProperty('--scrollPos', `${scrollPos}px`);
-          ticking = false;
-        });
-        ticking = true;
-      }
+    // Use RAF for smooth updates
+    const updateParallax = (time: number) => {
+      root.style.setProperty('--scrollPos', `${scrollPos}px`);
     };
 
-    const onScroll = () => {
+    // Throttle scroll events to reduce performance impact
+    const onScroll = throttle(() => {
       scrollPos = window.scrollY;
-      updateScrollPos();
-    };
+      rafManager.addCallback(updateParallax);
+    }, 16); // ~60fps
 
     window.addEventListener('scroll', onScroll, { passive: true });
-    return () => window.removeEventListener('scroll', onScroll);
+    
+    return () => {
+      window.removeEventListener('scroll', onScroll);
+      rafManager.removeCallback(updateParallax);
+    };
   }, []);
 };
