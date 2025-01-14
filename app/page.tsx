@@ -24,7 +24,8 @@ export default function Home() {
       tech: ["Python", "Flask", "Discord API", "Redis", "Gunicorn"],
       url: "https://dcmd-livestatus.onrender.com/discord-status",
       github: "https://github.com/lame-o/dcmd-livestatus",
-      image: "/images/discord-status.png"
+      image: "/images/discord-status.webp",
+      alt: "Discord Status Badge Demo Picture"
     },
     { 
       title: "PantryPal", 
@@ -32,7 +33,8 @@ export default function Home() {
       tech: ["Next.js", "React", "Node.js", "TypeScript", "Tailwind CSS", "OpenAI API", "JavaScript"], 
       url: "https://pantrypalv2.vercel.app/", 
       github: "https://github.com/lame-o/pantrypalv2",
-      image: "/images/pantrypalimg.png" 
+      image: "/images/pantrypalimg.webp",
+      alt: "PantryPal Demo Picture"
     },
     { 
       title: "Code4Dummies", 
@@ -40,7 +42,8 @@ export default function Home() {
       tech: ["Next.js", "TypeScript", "Tailwind CSS", "OpenAI API", "JavaScript"], 
       url: "https://code4dummies.vercel.app/", 
       github: "https://github.com/lame-o/code4dummies",
-      image: "/images/code4dummiesimg.png" 
+      image: "/images/code4dummiesimg.webp",
+      alt: "Code4Dummies Demo Picture"
     },
     { 
       title: "Prompt.ly", 
@@ -48,7 +51,8 @@ export default function Home() {
       tech: ["Next.js", "React", "Tailwind CSS", "TypeScript", "OpenAI API", "JavaScript"], 
       url: "https://prompt-ly.vercel.app/", 
       github: "https://github.com/lame-o/prompt.ly",
-      image: "/images/promptimg.png" 
+      image: "/images/promptimg.webp",
+      alt: "Prompt.ly Demo Picture"
     },
     { 
       title: "AI Image Editor", 
@@ -56,7 +60,8 @@ export default function Home() {
       tech: ["JavaScript", "Python", "Tailwind CSS", "Flask", "Dalle 2"], 
       url: "https://samurai-transformer.onrender.com", 
       github: "https://github.com/lame-o/samurai-transformer",
-      image: "/images/samurai.png" 
+      image: "/images/samurai.webp",
+      alt: "AI Image Editor Demo Picture"
     },
     { 
       title: "Water Tracker", 
@@ -64,7 +69,8 @@ export default function Home() {
       tech: ["Supabase", "HTML5", "CSS3", "JavaScript"], 
       url: "https://water-tracker-db.vercel.app/", 
       github: "https://github.com/lame-o/water-tracker-db",
-      image: "/images/watertracker.png" 
+      image: "/images/watertracker.webp",
+      alt: "Water Tracker Demo Picture"
     },
     { 
       title: "RAG Demo", 
@@ -72,7 +78,8 @@ export default function Home() {
       tech: ["Python", "Pinecone", "OpenAI"], 
       url: "https://github.com/lame-o/rag_demo", 
       github: "https://github.com/lame-o/rag_demo",
-      image: "/images/ragdemo1.png" 
+      image: "/images/ragdemo1.webp",
+      alt: "RAG Demo Picture"
     },
     { 
       title: "Movie Recommender", 
@@ -80,7 +87,8 @@ export default function Home() {
       tech: ["Python", "Pinecone", "OpenAI"], 
       url: "https://github.com/lame-o/pinecone-movie-test", 
       github: "https://github.com/lame-o/pinecone-movie-test",
-      image: "/images/movierecommender.png" 
+      image: "/images/movierecommender.webp",
+      alt: "Movie Recommender Demo Picture" 
     },
   ]
 
@@ -220,8 +228,8 @@ export default function Home() {
                 >
                   <div className="w-full h-full relative rounded-full overflow-hidden">
                     <Image
-                      src="/images/profile.jpeg"
-                      alt="Liam Dwight"
+                      src="/images/profile.webp"
+                      alt="Liam Dwight Profile Photo"
                       fill
                       className="rounded-full object-cover hover:scale-105 transition-transform duration-300"
                       priority
@@ -348,8 +356,8 @@ export default function Home() {
                 className="absolute right-0 -top-10 bottom-0 w-[350px] h-[450px]"
               >
                 <Image
-                  src="/images/professional-photo.jpeg"
-                  alt="Professional photo"
+                  src="/images/professional-photo.webp"
+                  alt="Liam Dwight Professional Photo"
                   fill
                   className="object-cover rounded-2xl border-4 border-[#ffecd6] shadow-[0_20px_80px_rgba(120,_86,_80,_0.95)] hover:scale-105 transition-transform duration-300"
                   priority
@@ -363,8 +371,8 @@ export default function Home() {
                 className="absolute right-[40%] bottom-0 w-[300px] h-[400px]"
               >
                 <Image
-                  src="/images/casual-photo.png"
-                  alt="Casual photo"
+                  src="/images/casual-photo.webp"
+                  alt="Liam Dwight Casual Photo"
                   fill
                   className="object-cover rounded-2xl border-4 border-[#ffecd6] shadow-[0_20px_80px_rgba(120,_86,_80,_0.95)] hover:scale-105 transition-transform duration-300"
                 />
