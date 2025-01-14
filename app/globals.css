@@ -119,25 +119,32 @@
 .landscape {
   position: absolute;
   z-index: 0;
-  contain: paint;
-  clip-path: inset(0);
+  contain: layout paint style;
+  will-change: transform;
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  perspective: 1000px;
 }
 
 .landscape__layer {
-  transform: translateY(calc(var(--scrollPos, 0) * var(--offset, 0)));
+  transform: translate3d(0, calc(var(--scrollPos, 0) * var(--offset, 0)), 0);
   will-change: transform;
+  backface-visibility: hidden;
   transition: transform 0.1s cubic-bezier(0.2, 0.8, 0.2, 1);
 }
 
+/* Reduce motion for users who prefer it */
 @media (prefers-reduced-motion: reduce) {
   .landscape__layer {
-    transform: translateY(0);
+    transform: none;
+    transition: none;
   }
 }
 
+/* Optimize for different screen sizes */
 @media (max-width: 768px) {
   .landscape__layer {
-    transform: translateY(calc(var(--scrollPos, 0) * var(--offset, 0) * 0.5));
+    transform: translate3d(0, calc(var(--scrollPos, 0) * var(--offset, 0) * 0.5), 0);
   }
 }
 
