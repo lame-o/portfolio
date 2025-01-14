@@ -360,7 +360,7 @@ export default function Home() {
                   alt="Liam Dwight Professional Photo"
                   fill
                   className="object-cover rounded-2xl border-4 border-[#ffecd6] shadow-[0_20px_80px_rgba(120,_86,_80,_0.95)] hover:scale-105 transition-transform duration-300"
-                  priority
+                  loading="lazy"
                 />
               </motion.div>
               <motion.div
@@ -375,6 +375,7 @@ export default function Home() {
                   alt="Liam Dwight Casual Photo"
                   fill
                   className="object-cover rounded-2xl border-4 border-[#ffecd6] shadow-[0_20px_80px_rgba(120,_86,_80,_0.95)] hover:scale-105 transition-transform duration-300"
+                  loading="lazy"
                 />
               </motion.div>
             </div>
@@ -448,10 +449,10 @@ export default function Home() {
                     <div className="relative w-full h-48 mb-4 rounded-lg overflow-hidden">
                       <Image
                         src={project.image}
-                        alt={project.title}
-                        layout="fill"
-                        objectFit="contain"
+                        alt={project.alt}
+                        fill
                         className="bg-background"
+                        loading="lazy"
                       />
                     </div>
                     {project.title === "Discord Status Badge" ? (
