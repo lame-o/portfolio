@@ -104,7 +104,7 @@ export default function Home() {
   return (
     <main className="min-h-screen text-zinc-900 antialiased">
       {/* Header / Navigation */}
-      <header className="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-md border-b border-zinc-200">
+      <header className="fixed top-0 left-0 right-0 z-[100] bg-white/80 backdrop-blur-md border-b border-zinc-200">
         <nav className="container mx-auto px-3 sm:px-6 h-16">
           <div className="flex items-center justify-between h-full gap-2">
             <div className="flex items-center gap-1 sm:gap-2">
@@ -293,21 +293,10 @@ export default function Home() {
       </section>
 
       {/* About Section */}
-      <section id="about" className="py-20 bg-zinc-50 relative z-50">
-        <svg
-          className="absolute -top-16 left-0 w-full h-32 z-[60]"
-          transform="rotate(180 0 0)"
-          viewBox="0 0 1440 100"
-          preserveAspectRatio="none"
-        >
-          <path
-            d="m0 16.303 15.625-1.713 15.625 2.018 15.625-.716L62.5 16.975l15.625 1.067 15.625-.348 15.625-1.215 15.625.983 15.625 3.11 15.625.385 15.625.998 15.625-3.892 15.625.487 15.625-1.045 15.625-.889L250 20.656l15.625-.012 15.625 3.413 15.625 1.987 15.625-2.712 15.625.985 15.625 2.39 15.625-.394L375 26.78l15.625-1.067 15.625 3.775 15.625-.124 15.625-3.014 15.625.225 15.625-3.118 15.625 1.598L500 24.841l15.625-2.593 15.625 1.768 15.625.651 15.625-2.523 15.625-.191L593.75 24.4l15.625 2.643L625 25.808l15.625-.899 15.625 3.26 15.625-3.732 15.625-.147 15.625 1.39 15.625 1.138 15.625.024L750 30.808l15.625-1.79 15.625.66 15.625 1.709 15.625-1.863 15.625-1.004 15.625 2.473 15.625-2.806L875 30.559l15.625 1.509 15.625 1.207 15.625-.966 15.625.932 15.625 1.497 15.625-1.402 15.625 2.124L1000 32.956l15.625 2.204 15.625-2.396 15.625 3.706 15.625-1.206 15.625.844 15.625-3.38 15.625-1.544 15.625-.865 15.625.106 15.625-2.827 15.625.273 15.625-.626 15.625-.289 15.625.708 15.625 3.464 15.625-.1 15.625.364 15.625.182 15.625 1.695 15.625.971 15.625-1.278 15.625 1.134 15.625-3.905L1375 30.5l15.625-1.239 15.625 2.276 15.625.647 15.625-2.87 15.625-2.093 15.625 1.805 15.625.186 15.625.28 15.625 3.187 15.625-.888 15.625-1.543 15.625 1.426 15.625-1.47 15.625-1.647 15.625.757L1625 28.3l15.625-1.533 15.625-2.518 15.625 2.225 15.625-1.949 15.625-.774 15.625 4.178 15.625 1.865 15.625-.928 15.625-1.366 15.625-2.431 15.625.944 15.625.287 15.625.643 15.625-1.321 15.625 2.81 15.625.798 15.625.406 15.625-.555 15.625 2.16 15.625-2.625 15.625 1.312 15.625 2.342 15.625-1.765L2000 31.975V50H0Z"
-            fill="#785650"
-          />
-        </svg>
+      <section id="about" className="py-12 bg-[#785650] relative z-50">
         <div className="container mx-auto px-6">
           <motion.h2 
-            className="text-3xl md:text-4xl font-bold text-primary mb-12 text-center"
+            className="text-3xl md:text-4xl font-bold text-white mb-12 text-center [text-shadow:_0_0_10px_rgba(0,_0,_0,_0.7)]"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             whileHover={{ 
@@ -331,13 +320,13 @@ export default function Home() {
               viewport={{ once: true }}
               className="space-y-6"
             >
-              <p className="text-lg leading-relaxed text-foreground/90">
-                Hello! I'm Liam, a new <span className="font-bold text-primary">UCSD</span> graduate and developer passionate about leveraging AI to build modern web applications. I love combining design with data, and have found myself using <span className="font-bold text-primary">AI</span> to accelerate <span className="font-bold text-primary">user-centered design</span> solutions for complex problems.
+              <p className="text-lg leading-relaxed text-white/90">
+                Hello! I'm Liam, a new <span className="font-bold text-[#ffecd6]">UCSD</span> graduate and developer passionate about leveraging AI to build modern web applications. I love combining design with data, and have found myself using <span className="font-bold text-[#ffecd6]">AI</span> to accelerate <span className="font-bold text-[#ffecd6]">user-centered design</span> solutions for complex problems.
               </p>
-              <p className="text-lg leading-relaxed text-foreground/90">
-                With experience in full stack development and the full product lifecycle (beginning with <span className="font-bold text-primary">user research</span> and problem interviews), I've also been interested in the uses of <a href="https://github.com/lame-o/rag_demo" className="font-bold text-primary hover:underline">RAG</a> and <a href="https://github.com/lame-o/pinecone-movie-test" className="font-bold text-primary hover:underline">Vector Databases</a>. I'm always eager to learn new technologies and improve my <span className="font-bold text-primary">Prompt Engineering</span>, below are some of the tools I'm currently using  to help.
+              <p className="text-lg leading-relaxed text-white/90">
+                With experience in full stack development and the full product lifecycle (beginning with <span className="font-bold text-[#ffecd6]">user research</span> and problem interviews), I've also been interested in the uses of <a href="https://github.com/lame-o/rag_demo" className="font-bold text-[#ffecd6] hover:underline">RAG</a> and <a href="https://github.com/lame-o/pinecone-movie-test" className="font-bold text-[#ffecd6] hover:underline">Vector Databases</a>. I'm always eager to learn new technologies and improve my <span className="font-bold text-[#ffecd6]">Prompt Engineering</span>, below are some of the tools I'm currently using  to help.
               </p>
-              <p className="text-lg leading-relaxed text-foreground/90">
+              <p className="text-lg leading-relaxed text-white/90">
                 In my spare time I enjoy climbing 🧗, playing video games 🎮, watching soccer ⚽, and of course annoying my girlfriend's dog 🐶
               </p>
               <div className="flex flex-wrap gap-3">
@@ -345,7 +334,7 @@ export default function Home() {
                   <Badge 
                     key={index}
                     variant="secondary" 
-                    className="bg-primary/15 hover:bg-primary/25 text-primary font-medium px-3 py-1 rounded-full border border-primary/20 transition-all duration-300"
+                    className="bg-[#ffecd6]/15 hover:bg-[#ffecd6]/25 text-[#ffecd6] font-medium px-3 py-1 rounded-full border border-[#ffecd6]/20 transition-all duration-300"
                   >
                     {tech}
                   </Badge>
@@ -353,19 +342,19 @@ export default function Home() {
               </div>
             </motion.div>
             
-            <div className="relative w-full h-[500px]">
+            <div className="relative w-full h-[450px]">
               <motion.div
                 initial={{ opacity: 0, x: 20, rotate: 15 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.6, delay: 0.2 }}
                 viewport={{ once: true }}
-                className="absolute right-0 top-0 bottom-0 w-[350px] h-[450px]"
+                className="absolute right-0 -top-10 bottom-0 w-[350px] h-[450px]"
               >
                 <Image
                   src="/images/professional-photo.jpeg"
                   alt="Professional photo"
                   fill
-                  className="object-cover rounded-2xl border-4 border-primary shadow-[0_20px_80px_rgba(8,_112,_184,_0.95)] hover:scale-105 transition-transform duration-300"
+                  className="object-cover rounded-2xl border-4 border-[#ffecd6] shadow-[0_20px_80px_rgba(120,_86,_80,_0.95)] hover:scale-105 transition-transform duration-300"
                   priority
                 />
               </motion.div>
@@ -380,7 +369,7 @@ export default function Home() {
                   src="/images/casual-photo.png"
                   alt="Casual photo"
                   fill
-                  className="object-cover rounded-2xl border-4 border-primary shadow-[0_20px_80px_rgba(8,_112,_184,_0.95)] hover:scale-105 transition-transform duration-300"
+                  className="object-cover rounded-2xl border-4 border-[#ffecd6] shadow-[0_20px_80px_rgba(120,_86,_80,_0.95)] hover:scale-105 transition-transform duration-300"
                 />
               </motion.div>
             </div>
@@ -389,21 +378,32 @@ export default function Home() {
       </section>
 
       {/* Web App Deployments Section */}
-      <section id="web-apps" className="py-20 bg-white relative">
+      <section id="web-apps" className="pt-20 pb-20 bg-[#ffecd6] relative">
+        <svg
+          className="absolute -top-16 left-0 w-full h-32 z-[60]"
+          transform="rotate(180 0 0)"
+          viewBox="0 0 1440 100"
+          preserveAspectRatio="none"
+        >
+          <path
+            d="m0 12.949 15.625 2.167 15.625-2.771 15.625 2.262 15.625-2.14 15.625 2.5 15.625-1.692 15.625 2.842L125 19.11l15.625.579 15.625-1.353 15.625-.78L187.5 15.87l15.625.97 15.625.778 15.625-1.066L250 15.73l15.625-.958 15.625 1.172 15.625.317 15.625.619 15.625 1.128 15.625-.816 15.625-.506 15.625-.28 15.625 2.61 15.625-1.34 15.625-2.189 15.625-.432 15.625 1.397 15.625 1.894 15.625 2.33L500 21.36l15.625 1.978 15.625.73 15.625-.149 15.625-3.26 15.625.435 15.625-3.742 15.625-3.253L625 13.397l15.625 1.75 15.625-1.763 15.625.877 15.625-1.163 15.625 1.222 15.625.62 15.625-.331L750 13.502l15.625 1.324 15.625-3.165 15.625-.224 15.625 3.736 15.625-.708 15.625 2.355 15.625-3.077L875 15.905l15.625.578 15.625-.986 15.625 2.864 15.625 1.616 15.625.402 15.625-1.806 15.625-1.56 15.625.935 15.625-1.22 15.625 1.51 15.625-.803 15.625-2.54 15.625-1.556 15.625 1.924 15.625.84L1125 17.295l15.625 2.739 15.625.817 15.625 3.228 15.625-1.718 15.625 1.394 15.625.156 15.625.667 15.625.47 15.625 2.54 15.625.263 15.625.747 15.625-2.835 15.625-1.6 15.625 3.09 15.625 1.186L1375 25.522l15.625-1.39 15.625 1.012 15.625-1.074 15.625 4.11 15.625-.47 15.625 2.124 15.625-3.258 15.625-.413 15.625-3.536 15.625 1.667 15.625-2.64 15.625 1.683 15.625-.08 15.625 1.548 15.625-1.768L1625 21.515l15.625.155 15.625 3.406 15.625 1.617 15.625-1.5 15.625-1.239 15.625 2.785 15.625-4.017 15.625.105 15.625-.67 15.625 4.32 15.625-1.316 15.625-1.28 15.625-2.463 15.625-.507 15.625-.395 15.625.825 15.625-1.367 15.625-.264 15.625.65 15.625 2.882 15.625-4.258 15.625.917 15.625.212 15.625 2.48V50H0Z"
+            fill="#785650"
+          />
+        </svg>
         <div className="absolute inset-0 pointer-events-none overflow-hidden">
-          <div className="absolute inset-0 bg-gradient-to-r from-transparent via-zinc-100 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-b from-[#ffecd6] via-#ffecd6 to-[#ffecd6]" />
           <DotPattern 
             width={25} 
             height={25} 
             cx={2.5} 
             cy={2.5} 
             cr={2.5}
-            className="fill-black/[0.05] [mask-image:radial-gradient(ellipse_at_center,black_50%,transparent_80%)]" 
+            className="fill-black/[0.05] [mask-image:radial-gradient(ellipse_at_center,#ffecd6_20%,#785650_80%)]" 
           />
         </div>
         <div className="container mx-auto px-6 relative">
           <motion.h2 
-            className="text-3xl md:text-4xl font-bold text-primary mb-12 text-center"
+            className="text-3xl md:text-4xl font-bold text-white mb-12 text-center [text-shadow:_0_0_10px_rgba(0,_0,_0,_1.5)]"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             whileHover={{ 
@@ -522,13 +522,23 @@ export default function Home() {
             ))}
           </div>
         </div>
+        <svg
+          className="absolute -bottom-16 left-0 w-full h-32 z-[60]"
+          viewBox="0 0 1440 100"
+          preserveAspectRatio="none"
+        >
+          <path
+            d="m0 16.303 15.625-1.713 15.625 2.018 15.625-.716L62.5 16.975l15.625 1.067 15.625-.348 15.625-1.215 15.625.983 15.625 3.11 15.625.385 15.625.998 15.625-3.892 15.625.487 15.625-1.045 15.625-.889L250 20.656l15.625-.012 15.625 3.413 15.625 1.987 15.625-2.712 15.625.985 15.625 2.39 15.625-.394L375 26.78l15.625-1.067 15.625 3.775 15.625-.124 15.625-3.014 15.625.225 15.625-3.118 15.625 1.598L500 24.841l15.625-2.593 15.625 1.768 15.625.651 15.625-2.523 15.625-.191L593.75 24.4l15.625 2.643L625 25.808l15.625-.899 15.625 3.26 15.625-3.732 15.625-.147 15.625 1.39 15.625 1.138 15.625.024L750 30.808l15.625-1.79 15.625.66 15.625 1.709 15.625-1.863 15.625-1.004 15.625 2.473 15.625-2.806L875 30.559l15.625 1.509 15.625 1.207 15.625-.966 15.625.932 15.625 1.497 15.625-1.402 15.625 2.124L1000 32.956l15.625 2.204 15.625-2.396 15.625 3.706 15.625-1.206 15.625.844 15.625-3.38 15.625-1.544 15.625-.865 15.625.106 15.625-2.827 15.625.273 15.625-.626 15.625-.289 15.625.708 15.625 3.464 15.625-.1 15.625.364 15.625.182 15.625 1.695 15.625.971 15.625-1.278 15.625 1.134 15.625-3.905L1375 30.5l15.625-1.239 15.625 2.276 15.625.647 15.625-2.87 15.625-2.093 15.625 1.805 15.625.186 15.625.28 15.625 3.187 15.625-.888 15.625-1.543 15.625 1.426 15.625-1.47 15.625-1.647 15.625.757L1625 28.3l15.625-1.533 15.625-2.518 15.625 2.225 15.625-1.949 15.625-.774 15.625 4.178 15.625 1.865 15.625-.928 15.625-1.366 15.625-2.431 15.625.944 15.625.287 15.625.643 15.625-1.321 15.625 2.81 15.625.798 15.625.406 15.625-.555 15.625 2.16 15.625-2.625 15.625 1.312 15.625 2.342 15.625-1.765L2000 31.975V50H0Z"
+            fill="#785650"
+          />
+        </svg>
       </section>
 
       {/* Projects Section */}
-      <section id="projects" className="py-20 bg-zinc-50">
+      <section id="projects" className="py-16 pt-8 bg-[#785650] relative">
         <div className="container mx-auto px-6">
           <motion.h2 
-            className="text-3xl md:text-4xl font-bold text-primary mb-12 text-center"
+            className="text-3xl md:text-4xl font-bold text-white mb-12 text-center [text-shadow:_0_0_10px_rgba(0,_0,_0,_0.7)]"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             whileHover={{ 
@@ -572,7 +582,7 @@ export default function Home() {
                 transition={{ duration: 0.5, delay: i * 0.1 }}
                 viewport={{ once: true }}
               >
-                <Card className="overflow-hidden bg-card h-full flex flex-col transition-all duration-300 hover:shadow-lg hover:-translate-y-1 hover:bg-accent/5 border-2">
+                <Card className="overflow-hidden bg-card h-full flex flex-col transition-all duration-300 hover:shadow-lg hover:-translate-y-1 hover:bg-zinc-50 border-2">
                   <CardContent className="p-6 flex-grow">
                     <h3 className="font-bold text-lg md:text-xl mb-2 text-primary">{project.title}</h3>
                     <p className="text-foreground mb-4 leading-relaxed">{project.desc}</p>
@@ -623,18 +633,26 @@ export default function Home() {
       </section>
 
       {/* Contact Section */}
-      <section id="contact" className="py-20 bg-white relative overflow-hidden">
+      <section id="contact" className="py-28 pt-32 bg-[#ffecd6] relative overflow-hidden">
+        <svg
+          className="absolute -top-16 left-0 w-full h-32 z-[60]"
+          transform="rotate(180 0 0)"
+          viewBox="0 0 1440 100"
+          preserveAspectRatio="none"
+        >
+          <path
+            d="m0 12.949 15.625 2.167 15.625-2.771 15.625 2.262 15.625-2.14 15.625 2.5 15.625-1.692 15.625 2.842L125 19.11l15.625.579 15.625-1.353 15.625-.78L187.5 15.87l15.625.97 15.625.778 15.625-1.066L250 15.73l15.625-.958 15.625 1.172 15.625.317 15.625.619 15.625 1.128 15.625-.816 15.625-.506 15.625-.28 15.625 2.61 15.625-1.34 15.625-2.189 15.625-.432 15.625 1.397 15.625 1.894 15.625 2.33L500 21.36l15.625 1.978 15.625.73 15.625-.149 15.625-3.26 15.625.435 15.625-3.742 15.625-3.253L625 13.397l15.625 1.75 15.625-1.763 15.625.877 15.625-1.163 15.625 1.222 15.625.62 15.625-.331L750 13.502l15.625 1.324 15.625-3.165 15.625-.224 15.625 3.736 15.625-.708 15.625 2.355 15.625-3.077L875 15.905l15.625.578 15.625-.986 15.625 2.864 15.625 1.616 15.625.402 15.625-1.806 15.625-1.56 15.625.935 15.625-1.22 15.625 1.51 15.625-.803 15.625-2.54 15.625-1.556 15.625 1.924 15.625.84L1125 17.295l15.625 2.739 15.625.817 15.625 3.228 15.625-1.718 15.625 1.394 15.625.156 15.625.667 15.625.47 15.625 2.54 15.625.263 15.625.747 15.625-2.835 15.625-1.6 15.625 3.09 15.625 1.186L1375 25.522l15.625-1.39 15.625 1.012 15.625-1.074 15.625 4.11 15.625-.47 15.625 2.124 15.625-3.258 15.625-.413 15.625-3.536 15.625 1.667 15.625-2.64 15.625 1.683 15.625-.08 15.625 1.548 15.625-1.768L1625 21.515l15.625.155 15.625 3.406 15.625 1.617 15.625-1.5 15.625-1.239 15.625 2.785 15.625-4.017 15.625.105 15.625-.67 15.625 4.32 15.625-1.316 15.625-1.28 15.625-2.463 15.625-.507 15.625-.395 15.625.825 15.625-1.367 15.625-.264 15.625.65 15.625 2.882 15.625-4.258 15.625.917 15.625.212 15.625 2.48V50H0Z"
+            fill="#785650"
+          />
+        </svg>
         <div className="absolute inset-0 pointer-events-none">
-          <div className="absolute inset-0 bg-gradient-to-r from-transparent via-zinc-100 to-transparent" />
           <RetroGrid 
-            className="w-full h-full scale-150 -translate-y-1/4"
+            className="absolute h-full w-full"
             angle={80}
             cellSize={40}
-            opacity={0.2}
-            lightLineColor="#000"
-            darkLineColor="#000"
+            opacity={0.3}
           />
-          <div className="absolute inset-0 bg-gradient-to-b from-white via-transparent to-white" />
+          <div className="absolute inset-0 bg-gradient-to-b from-[#ffecd6] via-transparent to-[#ffecd6]" />
         </div>
         <div className="container mx-auto px-6 text-center relative">
           <motion.h2 
@@ -693,6 +711,16 @@ export default function Home() {
             </Button>
           </motion.div>
         </div>
+        <svg
+          className="absolute -bottom-16 left-0 w-full h-32 z-[60]"
+          viewBox="0 0 1440 100"
+          preserveAspectRatio="none"
+        >
+          <path
+            d="m0 16.303 15.625-1.713 15.625 2.018 15.625-.716L62.5 16.975l15.625 1.067 15.625-.348 15.625-1.215 15.625.983 15.625 3.11 15.625.385 15.625.998 15.625-3.892 15.625.487 15.625-1.045 15.625-.889L250 20.656l15.625-.012 15.625 3.413 15.625 1.987 15.625-2.712 15.625.985 15.625 2.39 15.625-.394L375 26.78l15.625-1.067 15.625 3.775 15.625-.124 15.625-3.014 15.625.225 15.625-3.118 15.625 1.598L500 24.841l15.625-2.593 15.625 1.768 15.625.651 15.625-2.523 15.625-.191L593.75 24.4l15.625 2.643L625 25.808l15.625-.899 15.625 3.26 15.625-3.732 15.625-.147 15.625 1.39 15.625 1.138 15.625.024L750 30.808l15.625-1.79 15.625.66 15.625 1.709 15.625-1.863 15.625-1.004 15.625 2.473 15.625-2.806L875 30.559l15.625 1.509 15.625 1.207 15.625-.966 15.625.932 15.625 1.497 15.625-1.402 15.625 2.124L1000 32.956l15.625 2.204 15.625-2.396 15.625 3.706 15.625-1.206 15.625.844 15.625-3.38 15.625-1.544 15.625-.865 15.625.106 15.625-2.827 15.625.273 15.625-.626 15.625-.289 15.625.708 15.625 3.464 15.625-.1 15.625.364 15.625.182 15.625 1.695 15.625.971 15.625-1.278 15.625 1.134 15.625-3.905L1375 30.5l15.625-1.239 15.625 2.276 15.625.647 15.625-2.87 15.625-2.093 15.625 1.805 15.625.186 15.625.28 15.625 3.187 15.625-.888 15.625-1.543 15.625 1.426 15.625-1.47 15.625-1.647 15.625.757L1625 28.3l15.625-1.533 15.625-2.518 15.625 2.225 15.625-1.949 15.625-.774 15.625 4.178 15.625 1.865 15.625-.928 15.625-1.366 15.625-2.431 15.625.944 15.625.287 15.625.643 15.625-1.321 15.625 2.81 15.625.798 15.625.406 15.625-.555 15.625 2.16 15.625-2.625 15.625 1.312 15.625 2.342 15.625-1.765L2000 31.975V50H0Z"
+            fill="#785650"
+          />
+        </svg>
       </section>
 
       {/* Scroll to top button */}
@@ -717,19 +745,19 @@ export default function Home() {
       </motion.div>
 
       {/* Footer */}
-      <footer className="py-8 text-center text-zinc-600 bg-zinc-50 relative">
+      <footer className="py-8 text-center text-white/90 bg-[#785650] relative">
         <div className="container mx-auto px-6">
           <p className="leading-relaxed">
             &copy; {new Date().getFullYear()} Liam Dwight. Built with{' '}
-            <a href="https://nextjs.org" target="_blank" rel="noopener noreferrer" className="font-medium text-primary hover:text-primary/80 transition-colors">
+            <a href="https://nextjs.org" target="_blank" rel="noopener noreferrer" className="font-medium text-[#ffecd6] hover:text-[#ffecd6]/80 transition-colors">
               Next.js
             </a>
             {' '},{' '}
-            <a href="https://tailwindcss.com" target="_blank" rel="noopener noreferrer" className="font-medium text-primary hover:text-primary/80 transition-colors">
+            <a href="https://tailwindcss.com" target="_blank" rel="noopener noreferrer" className="font-medium text-[#ffecd6] hover:text-[#ffecd6]/80 transition-colors">
               Tailwind CSS
             </a>
             {', '}and deployed with{' '}
-            <a href="https://vercel.com" target="_blank" rel="noopener noreferrer" className="font-medium text-primary hover:text-primary/80 transition-colors">
+            <a href="https://vercel.com" target="_blank" rel="noopener noreferrer" className="font-medium text-[#ffecd6] hover:text-[#ffecd6]/80 transition-colors">
               Vercel
             </a>
           </p>
