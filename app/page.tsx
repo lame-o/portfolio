@@ -217,8 +217,8 @@ export default function Home() {
                 <ShineBorder 
                   borderRadius={999} 
                   borderWidth={5}
-                  duration={7}
-                  color={["#785650", "#b16758", "#ffecd6"]}
+                  duration={6}
+                  color={["#b16758", "#f98966", "#ffecd6"]}
                   className="!min-h-0 !min-w-0 !p-1 !bg-transparent w-full h-full rounded-full overflow-hidden"
                 >
                   <div className="w-full h-full relative rounded-full overflow-hidden">
@@ -725,7 +725,7 @@ export default function Home() {
 
       {/* Scroll to top button */}
       <motion.div
-        className="fixed bottom-8 right-20 z-50"
+        className="fixed bottom-8 right-20 z-[70]"
         initial={{ opacity: 0, scale: 0.8 }}
         animate={{ 
           opacity: showScrollTop ? 1 : 0,
@@ -737,7 +737,7 @@ export default function Home() {
         <Button
           variant="outline"
           size="icon"
-          className="rounded-full p-2 bg-white/80 backdrop-blur-sm border-primary text-primary hover:bg-primary/10 hover:ring-2 hover:ring-primary/90 hover:ring-offset-2"
+          className="rounded-full p-2 bg-white/80 backdrop-blur-sm border-primary text-primary hover:bg-primary/10 hover:ring-2 hover:ring-primary/90 hover:ring-offset-2 "
           onClick={scrollToTop}
         >
           <ChevronUp className="h-5 w-5" />
@@ -763,7 +763,7 @@ export default function Home() {
           </p>
         </div>
         <motion.div 
-          className="absolute bottom-4 right-4"
+          className="absolute bottom-4 right-4 z-[70]"
           transition={{ duration: 0.2 }}
         >
           <motion.div
