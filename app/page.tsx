@@ -15,6 +15,8 @@ import LetterPullup from "@/components/ui/letter-pullup"
 import MountainParallax from "@/components/ui/mountain-parallax"
 import { ConfettiButton } from "@/components/ui/confetti"
 import SparklesText from "@/components/ui/sparkles-text"
+import { HeroSection } from '@/components/sections/HeroSection'
+import { ProjectsSection } from '@/components/sections/ProjectsSection'
 
 export default function Home() {
   const projects = [
@@ -694,7 +696,7 @@ export default function Home() {
             <Button
               asChild
               variant="outline"
-              className="bg-white-900/50 border-primary text-primary hover:ring-2 hover:ring-primary/90 hover:ring-offset-2 transition-all duration-300 rounded-full text-lg px-6 py-2"
+              className="bg-white/900/50 border-primary text-primary hover:ring-2 hover:ring-primary/90 hover:ring-offset-2 transition-all duration-300 rounded-full text-lg px-6 py-2"
             >
               <a href="mailto:liamhdwight@gmail.com" className="flex items-center">
                 <Mail className="w-5 h-5 mr-2" />
@@ -801,14 +803,6 @@ export default function Home() {
           </motion.div>
         </motion.div>
       </footer>
-      <style jsx>{`
-        .interactive-text span {
-          display: inline-block;
-        }
-        .interactive-text span:hover {
-          transform: scale(1.05);
-        }
-      `}</style>
     </main>
   )
 }
