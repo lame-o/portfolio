@@ -98,7 +98,29 @@ export default function Home() {
   }, []);
 
   const scrollToTop = () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    const duration = 2000;
+    const startPosition = window.pageYOffset;
+    const startTime = performance.now();
+
+    const easeOutQuint = (t: number): number => {
+      return 1 - Math.pow(1 - t, 5);
+    };
+
+    const scrollAnimation = (currentTime: number): void => {
+      const timeElapsed = currentTime - startTime;
+      const progress = Math.min(timeElapsed / duration, 1);
+
+      const run = easeOutQuint(progress);
+      const newPosition = startPosition * (1 - run);
+      
+      window.scrollTo(0, newPosition);
+
+      if (progress < 1) {
+        requestAnimationFrame(scrollAnimation);
+      }
+    };
+
+    requestAnimationFrame(scrollAnimation);
   };
 
   return (
