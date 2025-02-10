@@ -15,8 +15,6 @@ import LetterPullup from "@/components/ui/letter-pullup"
 import MountainParallax from "@/components/ui/mountain-parallax"
 import { ConfettiButton } from "@/components/ui/confetti"
 import SparklesText from "@/components/ui/sparkles-text"
-import { HeroSection } from '@/components/sections/HeroSection'
-import { ProjectsSection } from '@/components/sections/ProjectsSection'
 
 export default function Home() {
   const projects = [
