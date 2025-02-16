@@ -19,6 +19,15 @@ import SparklesText from "@/components/ui/sparkles-text"
 export default function Home() {
   const projects = [
     {
+      title: "UCSD-SitIn",
+      desc: "Real-time UCSD class availability tracker with AI Course ChatBot",
+      tech: ["Next.js", "TypeScript", "Tailwind CSS", "Pinecone", "Airtable"],
+      url: "https://www.ucsd-sitin.xyz/",
+      github: "https://github.com/lame-o/ucsd-sitin",
+      image: "/images/ucsd-sitin.webp",
+      alt: "UCSD-SitIn Demo Picture"
+    },
+    {
       title: "Discord Status Badge",
       desc: "Dynamic badge displaying real-time Discord activity status in GitHub READMEs",
       tech: ["Python", "Flask", "Discord API", "Redis", "Gunicorn"],
@@ -425,8 +434,10 @@ export default function Home() {
           >
             My Web Apps
           </motion.h2>
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {projects.map((project, i) => (
+
+          {/* Featured Projects */}
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
+            {projects.filter(p => ["UCSD-SitIn", "Discord Status Badge", "RAG Demo", "Movie Recommender"].includes(p.title)).map((project, i) => (
               <motion.div
                 key={i}
                 initial={{ opacity: 0, y: 20 }}
@@ -434,24 +445,20 @@ export default function Home() {
                 transition={{ duration: 0.5, delay: i * 0.1 }}
                 viewport={{ once: true }}
               >
-                <Card 
-                  className={`overflow-hidden h-full flex flex-col transition-all duration-300 hover:shadow-lg hover:-translate-y-1 hover:bg-accent/5 border-2
-                    ${project.title === "Discord Status Badge" ? "bg-[#e6e9ff] hover:bg-[#d9deff] border-[#7289da] border-2" :
-                      project.title === "PantryPal" ? "bg-[#f0fff4] hover:bg-[#e6ffed] border-[#cccccc] border-2" : 
-                      project.title === "Code4Dummies" ? "bg-[#eee5ff] hover:bg-[#e5dbff] border-[#cccccc] border-2" :
-                      project.title === "Prompt.ly" ? "bg-[#fffbe6] hover:bg-[#fff7cc] border-[#cccccc] border-2" :
-                      project.title === "AI Image Editor" ? "bg-[#ffe6e6] hover:bg-[#ffd6d6] border-[#cccccc] border-2" :
-                      project.title === "Water Tracker" ? "bg-[#e6f7ff] hover:bg-[#ccf0ff] border-[#cccccc] border-2" :
-                      project.title === "RAG Demo" || project.title === "Movie Recommender" ? "bg-[#f5f5f5] hover:bg-[#e6e6e6] border-[#cccccc] border-2" :
-                      "bg-card"}`}
-                >
-                  <CardContent className="p-6 flex-grow">
+                <Card className={`h-full flex flex-col transition-colors duration-300 border-primary/20 ${
+                  project.title === "UCSD-SitIn" 
+                    ? "bg-[#fff8e1] hover:bg-[#fff3c4] border-[#ffd54f]" 
+                    : project.title === "Discord Status Badge"
+                    ? "bg-[#e9eeff] hover:bg-[#dce4ff] border-[#7289da]"
+                    : "bg-[#f5f5f5] hover:bg-[#eeeeee] border-[#cccccc]"
+                }`}>
+                  <CardContent className="p-6 flex-1 flex flex-col">
                     <div className="relative w-full h-48 mb-4 rounded-lg overflow-hidden">
                       <Image
                         src={project.image}
                         alt={project.alt}
                         fill
-                        className="bg-background"
+                        className="bg-background object-cover "
                         loading="lazy"
                       />
                     </div>
@@ -472,9 +479,8 @@ export default function Home() {
                         </Badge>
                       ))}
                     </div>
-                  </CardContent>
-                  <CardFooter className="p-6 pt-0">
-                    <div className="flex gap-2 w-full">
+                    <div className="flex-1"></div>
+                    <div className="flex gap-2 w-full mt-4">
                       {project.github && (
                         <motion.div
                           whileHover={{ scale: 1.05 }}
@@ -522,22 +528,67 @@ export default function Home() {
                         </motion.div>
                       )}
                     </div>
-                  </CardFooter>
+                  </CardContent>
                 </Card>
               </motion.div>
             ))}
           </div>
+
+          {/* Secondary Projects */}
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
+            {projects.filter(p => !["UCSD-SitIn", "Discord Status Badge", "RAG Demo", "Movie Recommender"].includes(p.title)).map((project, i) => (
+              <motion.div
+                key={i}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: i * 0.1 }}
+                viewport={{ once: true }}
+              >
+                <div className="h-full p-4 hover:bg-primary/5 rounded-lg transition-colors duration-300">
+                  <h3 className="font-bold text-base mb-2 text-primary">{project.title}</h3>
+                  <p className="text-foreground/90 text-sm mb-3 leading-relaxed">{project.desc}</p>
+                  <div className="flex flex-wrap gap-1.5 mb-3">
+                    {project.tech.map((tech, index) => (
+                      <Badge 
+                        key={index}
+                        variant="secondary" 
+                        className="bg-primary/10 hover:bg-primary/20 text-primary/90 text-xs font-medium px-2 py-0.5 rounded-full border border-primary/10 transition-all duration-300"
+                      >
+                        {tech}
+                      </Badge>
+                    ))}
+                  </div>
+                  <div className="flex gap-2">
+                    {project.github && (
+                      <Button
+                        asChild
+                        variant="ghost"
+                        size="sm"
+                        className="hover:bg-primary/10 hover:text-primary transition-all duration-300"
+                      >
+                        <a href={project.github} target="_blank" rel="noopener noreferrer" className="flex items-center justify-center">
+                          <Github className="w-3.5 h-3.5" />
+                        </a>
+                      </Button>
+                    )}
+                    {project.url && (
+                      <Button
+                        asChild
+                        variant="ghost"
+                        size="sm"
+                        className="hover:bg-primary/10 hover:text-primary transition-all duration-300"
+                      >
+                        <a href={project.url} target="_blank" rel="noopener noreferrer" className="flex items-center justify-center">
+                          <ExternalLink className="w-3.5 h-3.5" />
+                        </a>
+                      </Button>
+                    )}
+                  </div>
+                </div>
+              </motion.div>
+            ))}
+          </div>
         </div>
-        <svg
-          className="absolute -bottom-16 left-0 w-full h-32 z-[60]"
-          viewBox="0 0 1440 100"
-          preserveAspectRatio="none"
-        >
-          <path
-            d="m0 16.303 15.625-1.713 15.625 2.018 15.625-.716L62.5 16.975l15.625 1.067 15.625-.348 15.625-1.215 15.625.983 15.625 3.11 15.625.385 15.625.998 15.625-3.892 15.625.487 15.625-1.045 15.625-.889L250 20.656l15.625-.012 15.625 3.413 15.625 1.987 15.625-2.712 15.625.985 15.625 2.39 15.625-.394L375 26.78l15.625-1.067 15.625 3.775 15.625-.124 15.625-3.014 15.625.225 15.625-3.118 15.625 1.598L500 24.841l15.625-2.593 15.625 1.768 15.625.651 15.625-2.523 15.625-.191L593.75 24.4l15.625 2.643L625 25.808l15.625-.899 15.625 3.26 15.625-3.732 15.625-.147 15.625 1.39 15.625 1.138 15.625.024L750 30.808l15.625-1.79 15.625.66 15.625 1.709 15.625-1.863 15.625-1.004 15.625 2.473 15.625-2.806L875 30.559l15.625 1.509 15.625 1.207 15.625-.966 15.625.932 15.625 1.497 15.625-1.402 15.625 2.124L1000 32.956l15.625 2.204 15.625-2.396 15.625 3.706 15.625-1.206 15.625.844 15.625-3.38 15.625-1.544 15.625-.865 15.625.106 15.625-2.827 15.625.273 15.625-.626 15.625-.289 15.625.708 15.625 3.464 15.625-.1 15.625.364 15.625.182 15.625 1.695 15.625.971 15.625-1.278 15.625 1.134 15.625-3.905L1375 30.5l15.625-1.239 15.625 2.276 15.625.647 15.625-2.87 15.625-2.093 15.625 1.805 15.625.186 15.625.28 15.625 3.187 15.625-.888 15.625-1.543 15.625 1.426 15.625-1.47 15.625-1.647 15.625.757L1625 28.3l15.625-1.533 15.625-2.518 15.625 2.225 15.625-1.949 15.625-.774 15.625 4.178 15.625 1.865 15.625-.928 15.625-1.366 15.625-2.431 15.625.944 15.625.287 15.625.643 15.625-1.321 15.625 2.81 15.625.798 15.625.406 15.625-.555 15.625 2.16 15.625-2.625 15.625 1.312 15.625 2.342 15.625-1.765L2000 31.975V50H0Z"
-            fill="#785650"
-          />
-        </svg>
       </section>
 
       {/* Projects Section */}
@@ -603,9 +654,8 @@ export default function Home() {
                         </Badge>
                       ))}
                     </div>
-                  </CardContent>
-                  <CardFooter className="p-6 pt-0">
-                    <div className="flex gap-2 w-full">
+                    <div className="flex-1"></div>
+                    <div className="flex gap-2 w-full mt-4">
                       {project.url && (
                         <motion.div
                           whileHover={{ scale: 1.05 }}
@@ -630,7 +680,7 @@ export default function Home() {
                         </motion.div>
                       )}
                     </div>
-                  </CardFooter>
+                  </CardContent>
                 </Card>
               </motion.div>
             ))}
@@ -745,7 +795,7 @@ export default function Home() {
         <Button
           variant="outline"
           size="icon"
-          className="rounded-full p-2 bg-white/80 backdrop-blur-sm border-primary text-primary hover:bg-primary/10 hover:ring-2 hover:ring-primary/90 hover:ring-offset-2 "
+          className="rounded-full p-2 bg-white/80 backdrop-blur-sm border-primary text-primary hover:ring-2 hover:ring-primary/90 hover:ring-offset-2 "
           onClick={scrollToTop}
         >
           <ChevronUp className="h-5 w-5" />
