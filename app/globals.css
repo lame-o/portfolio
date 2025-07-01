@@ -117,15 +117,33 @@
 }
 
 /* Optimize for different screen sizes */
-@media (max-width: 768px) {
+@media (max-width: 640px) {
   .landscape__layer {
-    transform: translate3d(0, calc(var(--scrollPos, 0) * var(--offset, 0) * 0.5), 0);
+    transform: translate3d(0, calc(var(--scrollPos, 0) * var(--offset, 0) * 0.3), 0);
   }
 }
 
-@media (min-width: 2000px) {
+@media (min-width: 641px) and (max-width: 768px) {
   .landscape__layer {
-    transform: translateY(calc(var(--scrollPos, 0) * var(--offset, 0) * 1.5));
+    transform: translate3d(0, calc(var(--scrollPos, 0) * var(--offset, 0) * 0.4), 0);
+  }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+  .landscape__layer {
+    transform: translate3d(0, calc(var(--scrollPos, 0) * var(--offset, 0) * 0.6), 0);
+  }
+}
+
+@media (min-width: 1025px) and (max-width: 1536px) {
+  .landscape__layer {
+    transform: translate3d(0, calc(var(--scrollPos, 0) * var(--offset, 0) * 0.8), 0);
+  }
+}
+
+@media (min-width: 1537px) {
+  .landscape__layer {
+    transform: translate3d(0, calc(var(--scrollPos, 0) * var(--offset, 0) * 1.2), 0);
   }
 }
 

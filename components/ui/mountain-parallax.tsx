@@ -7,7 +7,7 @@ const MountainParallax = () => {
   useParallax();
 
   return (
-    <div className="absolute inset-0 w-full h-[110dvh] overflow-clip landscape" role="presentation">
+    <div className="absolute inset-0 w-full h-[110vh] sm:h-[120vh] md:h-[110vh] overflow-hidden landscape" role="presentation">
       {/* Sky Layer - Fixed */}
       <div 
         className="absolute inset-0 w-full h-full landscape__layer" 
