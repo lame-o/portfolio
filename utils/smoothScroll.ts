@@ -1,6 +1,6 @@
 import { RAFManager } from './performance';
 
-export function smoothScroll(elementId: string) {
+export function smoothScroll(elementId?: string | null) {
   const rafManager = RAFManager.getInstance();
   
   // For "scroll to top", elementId will be null/undefined

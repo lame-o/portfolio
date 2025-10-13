@@ -3,15 +3,9 @@ const nextConfig = {
   reactStrictMode: true,
   swcMinify: true,
   async redirects() {
+    // Keep root route at "/". Add redirects here if/when needed.
     return []
   },
-  async rewrites() {
-    return [
-      {
-        source: '/',
-        destination: '/home',
-        permanent: true,
-      },
-    ]
-  },
 }
+
+module.exports = nextConfig
