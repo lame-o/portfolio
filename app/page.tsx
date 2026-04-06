@@ -2,100 +2,112 @@
 
 import * as React from 'react'
 import Image from 'next/image'
-import { Github, Linkedin, ExternalLink, Menu, X } from 'lucide-react'
-import { motion } from 'framer-motion'
+import dynamic from 'next/dynamic'
+import { Github, Linkedin, Menu, X } from 'lucide-react'
+import { motion } from 'motion/react'
 import { Button } from "@/components/ui/enhanced-buttons"
 import { Badge } from "@/components/ui/badge"
 import { smoothScroll } from "@/utils/smoothScroll"
-import DotPattern from "@/components/ui/dot-pattern"
-import MountainParallax from "@/components/ui/mountain-parallax"
-import { ConfettiButton } from "@/components/ui/confetti"
-import { LiquidGlass } from "@/components/ui/liquid-glass"
+
+const MountainParallax = dynamic(() => import("@/components/ui/mountain-parallax"), { ssr: false })
+const ConfettiButton = dynamic(() => import("@/components/ui/confetti").then(m => ({ default: m.ConfettiButton })), { ssr: false })
+const LiquidGlass = dynamic(() => import("@/components/ui/liquid-glass").then(m => ({ default: m.LiquidGlass })), { ssr: false })
+
+const SpringHover = ({ children }: { children: React.ReactNode }) => (
+  <motion.div
+    whileHover={{ scale: 1.05 }}
+    whileTap={{ scale: 0.95 }}
+    transition={{ type: "spring", stiffness: 400, damping: 10 }}
+  >
+    {children}
+  </motion.div>
+)
+
+const projects = [
+  {
+    title: "UCSD-SitIn",
+    desc: "Real-time UCSD class availability tracker with AI Course ChatBot",
+    tech: ["Next.js", "TypeScript", "Tailwind CSS", "Pinecone", "Airtable"],
+    url: "https://www.ucsd-sitin.xyz/",
+    github: "https://github.com/lame-o/ucsd-sitin",
+    image: "/images/ucsd-sitin.webp",
+    alt: "UCSD-SitIn Demo Picture"
+  },
+  {
+    title: "Discord Status Badge",
+    desc: "Dynamic badge displaying real-time Discord activity status in GitHub READMEs",
+    tech: ["Python", "Flask", "Discord API", "Redis", "Gunicorn"],
+    url: "https://dcmd-livestatus.onrender.com/discord-status",
+    github: "https://github.com/lame-o/dcmd-livestatus",
+    image: "/images/discord-status.webp",
+    alt: "Discord Status Badge Demo Picture"
+  },
+  {
+    title: "PantryPal",
+    desc: "AI tool for College students with limited ingredients and cooking experience",
+    tech: ["Next.js", "React", "Node.js", "TypeScript", "Tailwind CSS", "OpenAI API", "JavaScript"],
+    url: "https://pantrypalv2.vercel.app/",
+    github: "https://github.com/lame-o/pantrypalv2",
+    image: "/images/pantrypalimg.webp",
+    alt: "PantryPal Demo Picture"
+  },
+  {
+    title: "Code4Dummies",
+    desc: "An AI tool for breaking down and learning given code",
+    tech: ["Next.js", "TypeScript", "Tailwind CSS", "OpenAI API", "JavaScript"],
+    url: "https://code4dummies.vercel.app/",
+    github: "https://github.com/lame-o/code4dummies",
+    image: "/images/code4dummiesimg.webp",
+    alt: "Code4Dummies Demo Picture"
+  },
+  {
+    title: "Prompt.ly",
+    desc: "AI tool for editing and improving prompts for other LLMs",
+    tech: ["Next.js", "React", "Tailwind CSS", "TypeScript", "OpenAI API", "JavaScript"],
+    url: "https://prompt-ly.vercel.app/",
+    github: "https://github.com/lame-o/prompt.ly",
+    image: "/images/promptimg.webp",
+    alt: "Prompt.ly Demo Picture"
+  },
+  {
+    title: "AI Image Editor",
+    desc: "Upload an image and receive a stylized version using Dalle 2",
+    tech: ["JavaScript", "Python", "Tailwind CSS", "Flask", "Dalle 2"],
+    url: "https://samurai-transformer.onrender.com",
+    github: "https://github.com/lame-o/samurai-transformer",
+    image: "/images/samurai.webp",
+    alt: "AI Image Editor Demo Picture"
+  },
+  {
+    title: "Water Tracker",
+    desc: "Water intake tracker with database and user auth",
+    tech: ["Supabase", "HTML5", "CSS3", "JavaScript"],
+    url: "https://water-tracker-db.vercel.app/",
+    github: "https://github.com/lame-o/water-tracker-db",
+    image: "/images/watertracker.webp",
+    alt: "Water Tracker Demo Picture"
+  },
+  {
+    title: "RAG Demo",
+    desc: "RAG chatbot demo",
+    tech: ["Python", "Pinecone", "OpenAI"],
+    url: "https://github.com/lame-o/rag_demo",
+    github: "https://github.com/lame-o/rag_demo",
+    image: "/images/ragdemo1.webp",
+    alt: "RAG Demo Picture"
+  },
+  {
+    title: "Movie Recommender",
+    desc: "Movie recommender using Pinecone and OpenAI",
+    tech: ["Python", "Pinecone", "OpenAI"],
+    url: "https://github.com/lame-o/pinecone-movie-test",
+    github: "https://github.com/lame-o/pinecone-movie-test",
+    image: "/images/movierecommender.webp",
+    alt: "Movie Recommender Demo Picture"
+  },
+]
 
 export default function Home() {
-  const projects = [
-    {
-      title: "UCSD-SitIn",
-      desc: "Real-time UCSD class availability tracker with AI Course ChatBot",
-      tech: ["Next.js", "TypeScript", "Tailwind CSS", "Pinecone", "Airtable"],
-      url: "https://www.ucsd-sitin.xyz/",
-      github: "https://github.com/lame-o/ucsd-sitin",
-      image: "/images/ucsd-sitin.webp",
-      alt: "UCSD-SitIn Demo Picture"
-    },
-    {
-      title: "Discord Status Badge",
-      desc: "Dynamic badge displaying real-time Discord activity status in GitHub READMEs",
-      tech: ["Python", "Flask", "Discord API", "Redis", "Gunicorn"],
-      url: "https://dcmd-livestatus.onrender.com/discord-status",
-      github: "https://github.com/lame-o/dcmd-livestatus",
-      image: "/images/discord-status.webp",
-      alt: "Discord Status Badge Demo Picture"
-    },
-    { 
-      title: "PantryPal", 
-      desc: "AI tool for College students with limited ingredients and cooking experience", 
-      tech: ["Next.js", "React", "Node.js", "TypeScript", "Tailwind CSS", "OpenAI API", "JavaScript"], 
-      url: "https://pantrypalv2.vercel.app/", 
-      github: "https://github.com/lame-o/pantrypalv2",
-      image: "/images/pantrypalimg.webp",
-      alt: "PantryPal Demo Picture"
-    },
-    { 
-      title: "Code4Dummies", 
-      desc: "An AI tool for breaking down and learning given code", 
-      tech: ["Next.js", "TypeScript", "Tailwind CSS", "OpenAI API", "JavaScript"], 
-      url: "https://code4dummies.vercel.app/", 
-      github: "https://github.com/lame-o/code4dummies",
-      image: "/images/code4dummiesimg.webp",
-      alt: "Code4Dummies Demo Picture"
-    },
-    { 
-      title: "Prompt.ly", 
-      desc: "AI tool for editing and improving prompts for other LLMs", 
-      tech: ["Next.js", "React", "Tailwind CSS", "TypeScript", "OpenAI API", "JavaScript"], 
-      url: "https://prompt-ly.vercel.app/", 
-      github: "https://github.com/lame-o/prompt.ly",
-      image: "/images/promptimg.webp",
-      alt: "Prompt.ly Demo Picture"
-    },
-    { 
-      title: "AI Image Editor", 
-      desc: "Upload an image and receive a stylized version using Dalle 2", 
-      tech: ["JavaScript", "Python", "Tailwind CSS", "Flask", "Dalle 2"], 
-      url: "https://samurai-transformer.onrender.com", 
-      github: "https://github.com/lame-o/samurai-transformer",
-      image: "/images/samurai.webp",
-      alt: "AI Image Editor Demo Picture"
-    },
-    { 
-      title: "Water Tracker", 
-      desc: "Water intake tracker with database and user auth", 
-      tech: ["Supabase", "HTML5", "CSS3", "JavaScript"], 
-      url: "https://water-tracker-db.vercel.app/", 
-      github: "https://github.com/lame-o/water-tracker-db",
-      image: "/images/watertracker.webp",
-      alt: "Water Tracker Demo Picture"
-    },
-    { 
-      title: "RAG Demo", 
-      desc: "RAG chatbot demo", 
-      tech: ["Python", "Pinecone", "OpenAI"], 
-      url: "https://github.com/lame-o/rag_demo", 
-      github: "https://github.com/lame-o/rag_demo",
-      image: "/images/ragdemo1.webp",
-      alt: "RAG Demo Picture"
-    },
-    { 
-      title: "Movie Recommender", 
-      desc: "Movie recommender using Pinecone and OpenAI", 
-      tech: ["Python", "Pinecone", "OpenAI"], 
-      url: "https://github.com/lame-o/pinecone-movie-test", 
-      github: "https://github.com/lame-o/pinecone-movie-test",
-      image: "/images/movierecommender.webp",
-      alt: "Movie Recommender Demo Picture" 
-    },
-  ]
 
   const [isMobileMenuOpen, setIsMobileMenuOpen] = React.useState(false);
   const [isWaveAnimating, setIsWaveAnimating] = React.useState(false);
@@ -122,15 +134,7 @@ export default function Home() {
           <nav className="relative z-10 h-16 container mx-auto px-3 sm:px-6">
             <div className="flex h-full items-center justify-between gap-2">
             <div className="flex items-center gap-1 sm:gap-2">
-              <motion.div
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                transition={{
-                  type: "spring",
-                  stiffness: 400,
-                  damping: 10
-                }}
-              >
+              <SpringHover>
                 <Button
                   variant="ghost"
                   size="icon"
@@ -139,16 +143,8 @@ export default function Home() {
                 >
                   <Linkedin className="w-5 h-5" />
                 </Button>
-              </motion.div>
-              <motion.div
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                transition={{
-                  type: "spring",
-                  stiffness: 400,
-                  damping: 10
-                }}
-              >
+              </SpringHover>
+              <SpringHover>
                 <Button
                   variant="ghost"
                   size="icon"
@@ -157,17 +153,8 @@ export default function Home() {
                 >
                   <Github className="w-5 h-5" />
                 </Button>
-              </motion.div>
-              {/* Profile icon to scroll to contact */}
-              <motion.div
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                transition={{
-                  type: "spring",
-                  stiffness: 400,
-                  damping: 10
-                }}
-              >
+              </SpringHover>
+              <SpringHover>
                 <Button
                   variant="ghost"
                   size="icon"
@@ -185,7 +172,7 @@ export default function Home() {
                     />
                   </span>
                 </Button>
-              </motion.div>
+              </SpringHover>
             </div>
 
             {/* Mobile menu button */}
@@ -203,16 +190,7 @@ export default function Home() {
             {/* Desktop navigation */}
             <div className="hidden md:flex items-center gap-1 sm:gap-4">
               {['About', 'Contact'].map((item) => (
-                <motion.div
-                  key={item}
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                  transition={{
-                    type: "spring",
-                    stiffness: 400,
-                    damping: 10
-                  }}
-                >
+                <SpringHover key={item}>
                   <Button
                     variant="ghost"
                     size="sm"
@@ -226,7 +204,7 @@ export default function Home() {
                   >
                     {item}
                   </Button>
-                </motion.div>
+                </SpringHover>
               ))}
             </div>
           </div>
@@ -573,15 +551,7 @@ export default function Home() {
             transition={{ duration: 0.5, delay: 0.4 }}
             viewport={{ once: true }}
           >
-            <motion.div
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              transition={{
-                type: "spring",
-                stiffness: 400,
-                damping: 10
-              }}
-            >
+            <SpringHover>
               <Button
                 asChild
                 variant="ghost"
@@ -592,16 +562,8 @@ export default function Home() {
                   Email
                 </a>
               </Button>
-            </motion.div>
-            <motion.div
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              transition={{
-                type: "spring",
-                stiffness: 400,
-                damping: 10
-              }}
-            >
+            </SpringHover>
+            <SpringHover>
               <Button
                 variant="ghost"
                 size="sm"
@@ -610,16 +572,8 @@ export default function Home() {
               >
                 LinkedIn
               </Button>
-            </motion.div>
-            <motion.div
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              transition={{
-                type: "spring",
-                stiffness: 400,
-                damping: 10
-              }}
-            >
+            </SpringHover>
+            <SpringHover>
               <Button
                 variant="ghost"
                 size="sm"
@@ -628,7 +582,7 @@ export default function Home() {
               >
                 GitHub
               </Button>
-            </motion.div>
+            </SpringHover>
           </motion.div>
         </div>
         <motion.div 

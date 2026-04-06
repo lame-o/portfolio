@@ -60,9 +60,11 @@ interface SparklesTextProps {
   };
 }
 
+const DEFAULT_COLORS = { first: "#9E7AFF", second: "#FE8BBB" };
+
 const SparklesText: React.FC<SparklesTextProps> = ({
   text,
-  colors = { first: "#9E7AFF", second: "#FE8BBB" },
+  colors = DEFAULT_COLORS,
   className,
   sparklesCount = 10,
   ...props
@@ -99,7 +101,7 @@ const SparklesText: React.FC<SparklesTextProps> = ({
     };
 
     initializeStars();
-    const interval = setInterval(updateStars, 100);
+    const interval = setInterval(updateStars, 250);
 
     return () => clearInterval(interval);
   }, [colors.first, colors.second, sparklesCount]);

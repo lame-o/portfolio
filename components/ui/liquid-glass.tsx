@@ -1,7 +1,7 @@
 "use client";
 
 import { cn } from "@/lib/utils";
-import { useCallback, useEffect, useMemo, useRef, useState } from "react";
+import { useCallback, useEffect, useId, useRef, useState } from "react";
 
 const smoothStep = (a: number, b: number, t: number): number => {
   t = Math.max(0, Math.min(1, (t - a) / (b - a)));
@@ -56,10 +56,7 @@ export const LiquidGlass = ({
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const feImageRef = useRef<SVGFEImageElement>(null);
   const feDisplacementMapRef = useRef<SVGFEDisplacementMapElement>(null);
-  const filterId = useMemo(
-    () => `liquid-glass-${Math.random().toString(36).slice(2, 11)}`,
-    []
-  );
+  const filterId = useId();
   const [size, setSize] = useState({ width: 1, height: 1 });
 
   useEffect(() => {
