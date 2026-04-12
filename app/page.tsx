@@ -7,7 +7,6 @@ import { Github, Linkedin, Menu, X } from 'lucide-react'
 import { motion } from 'motion/react'
 import { Button } from "@/components/ui/enhanced-buttons"
 import { Badge } from "@/components/ui/badge"
-import { smoothScroll } from "@/utils/smoothScroll"
 
 const MountainParallax = dynamic(() => import("@/components/ui/mountain-parallax"), { ssr: false })
 const ConfettiButton = dynamic(() => import("@/components/ui/confetti").then(m => ({ default: m.ConfettiButton })), { ssr: false })
@@ -159,7 +158,7 @@ export default function Home() {
                   variant="ghost"
                   size="icon"
                   className="rounded-full hover:bg-primary hover:text-primary-foreground transition-all duration-300"
-                  onClick={() => smoothScroll('contact')}
+                  onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
                 >
                   <span className="relative block w-6 h-6">
                     <Image
