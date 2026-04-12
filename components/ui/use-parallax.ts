@@ -5,23 +5,24 @@ import { RAFManager } from '@/utils/performance';
 
 export const useParallax = () => {
   useEffect(() => {
+    if (typeof CSS !== 'undefined' && CSS.supports('animation-timeline', 'scroll()')) {
+      return;
+    }
+
     const root = document.documentElement;
     const rafManager = RAFManager.getInstance();
-    let scrollPos = window.scrollY;
+    let lastApplied = -1;
 
     const updateParallax = () => {
-      root.style.setProperty('--scrollPos', `${scrollPos}px`);
-    };
-
-    const onScroll = () => {
-      scrollPos = window.scrollY;
+      const sy = window.scrollY;
+      if (sy === lastApplied) return;
+      lastApplied = sy;
+      root.style.setProperty('--scrollPos', `${sy}px`);
     };
 
     rafManager.addCallback(updateParallax);
-    window.addEventListener('scroll', onScroll, { passive: true });
 
     return () => {
-      window.removeEventListener('scroll', onScroll);
       rafManager.removeCallback(updateParallax);
     };
   }, []);

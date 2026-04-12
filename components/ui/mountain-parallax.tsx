@@ -8,15 +8,8 @@ const MountainParallax = () => {
 
   return (
     <div className="absolute inset-0 w-full h-[110vh] sm:h-[120vh] md:h-[110vh] overflow-hidden landscape" role="presentation">
-      {/* Sky Layer - Fixed */}
-      <div 
-        className="absolute inset-0 w-full h-full landscape__layer" 
-        style={{ '--offset': '0' } as React.CSSProperties}
-      >
-        <svg className="w-full h-full" preserveAspectRatio="xMidYMin slice" viewBox="0 0 3840 1080">
-          <rect width="100%" height="100%" fill="#FFE4C4" />
-        </svg>
-      </div>
+      {/* Sky Layer - static, not in parallax system */}
+      <div className="absolute inset-0 w-full h-full" style={{ backgroundColor: '#FFE4C4' }} />
       {/* Layer 3 */}
       <div 
         className="absolute inset-0 w-full h-full landscape__layer" 
