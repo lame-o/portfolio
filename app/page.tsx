@@ -217,7 +217,7 @@ export default function Home() {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -20 }}
               transition={{ duration: 0.2 }}
-              className="relative z-10 border-b border-border bg-background/95 py-4 px-6 backdrop-blur-md md:hidden"
+              className="relative z-10 border-b border-border py-4 px-6 md:hidden"
             >
               <div className="flex flex-col gap-3">
                 {['About', 'Contact'].map((item) => (
@@ -251,7 +251,7 @@ export default function Home() {
       </section>
 
       {/* About Section */}
-      <section id="about" className="pt-32 pb-32 bg-[#785650] relative z-50">
+      <section id="about" className="pt-16 pb-16 md:pt-32 md:pb-32 bg-[#785650] relative z-50">
         <div className="container mx-auto px-6">
           <motion.h2 
             className="text-3xl md:text-4xl font-bold text-white mb-12 text-center"
@@ -270,7 +270,7 @@ export default function Home() {
           >
             {/* About Me */}
           </motion.h2>
-          <div className="grid md:grid-cols-2 gap-12 items-center">
+          <div className="grid md:grid-cols-2 gap-16 md:gap-12 items-center">
             <motion.div
               initial={{ opacity: 0, x: -20 }}
               whileInView={{ opacity: 1, x: 0 }}
@@ -311,18 +311,19 @@ export default function Home() {
               </div>
             </motion.div>
             
-            <div className="relative w-full h-[450px]">
+            <div className="relative w-full h-[320px] sm:h-[400px] md:h-[450px]">
               <motion.div
                 initial={{ opacity: 0, x: 20, rotate: 15 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.6, delay: 0.2 }}
                 viewport={{ once: true }}
-                className="absolute right-0 -top-10 bottom-0 w-[350px] h-[450px]"
+                className="absolute right-[6%] md:right-0 top-0 md:-top-10 w-[58%] md:w-[350px] md:h-[450px] aspect-[7/9] md:aspect-auto"
               >
                 <Image
                   src="/images/professional-photo.webp"
                   alt="Liam Dwight Professional Photo"
                   fill
+                  sizes="(max-width: 768px) 60vw, 350px"
                   className="object-cover rounded-2xl border-4 border-[#ffecd6] shadow-[0_20px_80px_rgba(120,_86,_80,_0.95)] hover:scale-105 transition-transform duration-300"
                   loading="lazy"
                 />
@@ -332,12 +333,13 @@ export default function Home() {
                 whileInView={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.6, delay: 0.4 }}
                 viewport={{ once: true }}
-                className="absolute right-[40%] bottom-0 w-[300px] h-[400px]"
+                className="absolute right-[44%] md:right-[40%] bottom-0 w-[50%] md:w-[300px] md:h-[400px] aspect-[3/4] md:aspect-auto"
               >
                 <Image
                   src="/images/casual-photo.webp"
                   alt="Liam Dwight Casual Photo"
                   fill
+                  sizes="(max-width: 768px) 50vw, 300px"
                   className="object-cover rounded-2xl border-4 border-[#ffecd6] shadow-[0_20px_80px_rgba(120,_86,_80,_0.95)] hover:scale-105 transition-transform duration-300"
                   loading="lazy"
                 />
@@ -611,7 +613,7 @@ export default function Home() {
                 alt="Dancing Cat"
                 width={60}
                 height={60}
-                className="rounded-full hover:scale-110 transition-transform duration-200"
+                className="w-10 h-10 md:w-12 md:h-12 rounded-full hover:scale-110 transition-transform duration-200"
               />
             </ConfettiButton>
           </motion.div>
