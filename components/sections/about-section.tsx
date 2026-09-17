@@ -71,10 +71,23 @@ export function AboutSection() {
                 >
                   <source src="/images/wave-hand.webm" type="video/webm" />
                 </video>
-              </span> I'm Liam, a <span className="font-bold text-[#ffecd6]">UCSD</span> graduate and deeply driven problem solver accelerated by AI.
+              </span> I'm Liam, a <span className="font-bold text-[#ffecd6]">UCSD</span> alumni and deeply driven problem solver accelerated by AI.
             </p>
             <p className="text-lg leading-relaxed text-white/90">
-              I am trained in Engineering and Human-Computer Interaction; passionate about user-centered design. Currently an <span className="font-bold text-[#ffecd6]">AI Strategist @ Cadre AI</span>
+              I am trained in Engineering and Human-Computer Interaction; Currently an{' '}
+              <span className="font-bold text-[#ffecd6]">
+                AI Strategist @{' '}
+                <a
+                  href="https://cadre.ai/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  // Underline carries the affordance; only its colour animates on
+                  // hover, so the text itself never shifts.
+                  className="rounded-sm underline decoration-[#ffecd6]/40 underline-offset-4 transition-colors duration-150 hover:decoration-[#ffecd6] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#ffecd6]/70 focus-visible:ring-offset-2 focus-visible:ring-offset-[#785650]"
+                >
+                  Cadre AI
+                </a>
+              </span>
             </p>
           </motion.div>
 
