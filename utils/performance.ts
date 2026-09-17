@@ -1,45 +1,4 @@
-// Performance optimization utilities
-export const debounce = <T extends (...args: any[]) => void>(
-  func: T,
-  wait: number
-): ((...args: Parameters<T>) => void) => {
-  let timeout: NodeJS.Timeout;
-  
-  return (...args: Parameters<T>) => {
-    clearTimeout(timeout);
-    timeout = setTimeout(() => func(...args), wait);
-  };
-};
-
-export const throttle = <T extends (...args: any[]) => void>(
-  func: T,
-  limit: number
-): ((...args: Parameters<T>) => void) => {
-  let inThrottle: boolean;
-  
-  return (...args: Parameters<T>) => {
-    if (!inThrottle) {
-      func(...args);
-      inThrottle = true;
-      setTimeout(() => (inThrottle = false), limit);
-    }
-  };
-};
-
-// Intersection Observer utility for lazy loading
-export const createIntersectionObserver = (
-  callback: IntersectionObserverCallback,
-  options: IntersectionObserverInit = {
-    root: null,
-    rootMargin: '50px',
-    threshold: 0.1
-  }
-): IntersectionObserver | null => {
-  if (typeof window === 'undefined') return null;
-  return new IntersectionObserver(callback, options);
-};
-
-// RAF manager for smooth animations
+// Shared requestAnimationFrame loop so multiple consumers drive one rAF cycle.
 export class RAFManager {
   private static instance: RAFManager;
   private callbacks: Set<(time: number) => void> = new Set();
@@ -77,20 +36,3 @@ export class RAFManager {
     }
   }
 }
-
-export const measurePerformance = (action: string) => {
-  if (process.env.NODE_ENV === 'development') {
-    performance.mark(`${action}-start`);
-    return () => {
-      performance.mark(`${action}-end`);
-      performance.measure(
-        action,
-        `${action}-start`,
-        `${action}-end`
-      );
-      const measurements = performance.getEntriesByName(action);
-      console.log(`${action} took ${measurements[0].duration}ms`);
-    };
-  }
-  return () => {};
-};

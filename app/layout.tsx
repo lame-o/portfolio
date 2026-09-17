@@ -2,7 +2,6 @@ import type { Metadata, Viewport } from 'next'
 import localFont from 'next/font/local'
 import './globals.css'
 import React from 'react'
-import ThemeProvider from '@/components/theme-provider'
 
 const garabosse = localFont({
   src: [
@@ -15,10 +14,20 @@ const garabosse = localFont({
 })
 
 export const metadata: Metadata = {
-  title: 'Liam Dwight | Portfolio',
-  description: 'Full Stack Developer Portfolio',
+  title: {
+    default: 'Liam Dwight | Portfolio',
+    template: '%s · Liam Dwight',
+  },
+  description:
+    'Liam Dwight — AI Strategist and UCSD graduate trained in Engineering and Human-Computer Interaction. Building user-centered products with Next.js, TypeScript, and Python.',
   icons: {
     icon: '/images/favicon.png',
+  },
+  openGraph: {
+    title: 'Liam Dwight | Portfolio',
+    description:
+      'AI Strategist and UCSD graduate trained in Engineering and Human-Computer Interaction.',
+    type: 'website',
   },
 }
 
@@ -34,12 +43,8 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en" suppressHydrationWarning className={garabosse.variable}>
-      <body>
-        <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
-          {children}
-        </ThemeProvider>
-      </body>
+    <html lang="en" className={garabosse.variable}>
+      <body>{children}</body>
     </html>
   )
 }

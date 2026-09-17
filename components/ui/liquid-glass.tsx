@@ -63,8 +63,11 @@ export const LiquidGlass = ({
     const element = containerRef.current;
     if (!element) return;
 
-    const updateSize = () =>
-      setSize({ width: element.offsetWidth || 1, height: element.offsetHeight || 1 });
+    const updateSize = () => {
+      const width = element.offsetWidth || 1;
+      const height = element.offsetHeight || 1;
+      setSize(prev => (prev.width === width && prev.height === height ? prev : { width, height }));
+    };
 
     updateSize();
 
@@ -99,7 +102,7 @@ export const LiquidGlass = ({
 
     const data = new Uint8ClampedArray(w * h * 4);
     let maxScale = 0;
-    const rawValues: number[] = [];
+    const rawValues = new Float32Array(w * h * 2);
 
     const fragment = (uv: UV) => {
       const ix = uv.x - 0.5;
@@ -127,10 +130,11 @@ export const LiquidGlass = ({
       const dx = pos.x * w - x;
       const dy = pos.y * h - y;
       maxScale = Math.max(maxScale, Math.abs(dx), Math.abs(dy));
-      rawValues.push(dx, dy);
+      rawValues[i * 2] = dx;
+      rawValues[i * 2 + 1] = dy;
     }
 
-    maxScale *= 0.5;
+    maxScale = Math.max(maxScale * 0.5, 1e-6);
 
     let dataIndex = 0;
     let rawValueIndex = 0;

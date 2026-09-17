@@ -1,6 +1,11 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   darkMode: ["class"],
+  // Wraps every `hover:` variant in `@media (hover: hover)` so a tap on a
+  // touch device doesn't leave elements stuck in their hover state.
+  future: {
+    hoverOnlyWhenSupported: true,
+  },
   content: [
     './pages/**/*.{ts,tsx}',
     './components/**/*.{ts,tsx}',
@@ -60,6 +65,11 @@ module.exports = {
   				'4': 'hsl(var(--chart-4))',
   				'5': 'hsl(var(--chart-5))'
   			}
+  		},
+  		transitionTimingFunction: {
+  			'out-strong': 'var(--ease-out)',
+  			'in-out-strong': 'var(--ease-in-out)',
+  			drawer: 'var(--ease-drawer)'
   		},
   		borderRadius: {
   			lg: 'var(--radius)',
