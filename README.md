@@ -1,22 +1,21 @@
 # Professional Portfolio
 
-My personal portfolio website built with Next.js, showcasing my projects and skills. The site features a modern, responsive design with dark mode support and smooth animations.
+My personal portfolio website built with Next.js. A fast, statically rendered single page with a compositor-driven parallax hero and smooth animations.
 
 ## Features
 
-- **Modern UI/UX**: Built with Next.js 14 and Tailwind CSS
+- **Modern UI/UX**: Built with Next.js 14 (App Router) and Tailwind CSS
 - **Responsive Design**: Fully responsive across all device sizes
-- **Dark Mode**: Seamless theme switching with system preference support
-- **Smooth Animations**: Using Framer Motion for engaging transitions
-- **Interactive Elements**: Dynamic navigation and contact buttons
-- **Project Showcase**: Highlighting my AI and web development projects
+- **Performance-first**: Server-rendered hero, scroll-driven CSS parallax, optimized images and lazy-loaded interactive islands
+- **Smooth Animations**: Using Motion for engaging transitions
+- **Accessible**: Labeled controls, semantic landmarks, reduced-motion support
 
 ## Tech Stack
 
 - **Framework**: Next.js 14
 - **Styling**: Tailwind CSS
-- **Animations**: Framer Motion
-- **UI Components**: Shadcn/ui
+- **Animations**: Motion (Framer Motion successor)
+- **UI Components**: shadcn/ui-style primitives
 - **Icons**: Lucide React
 - **TypeScript**: For type safety and better developer experience
 
@@ -24,7 +23,7 @@ My personal portfolio website built with Next.js, showcasing my projects and ski
 
 1. Clone the repository:
 ```bash
-git clone https://github.com/yourusername/professional-portfolio.git
+git clone https://github.com/lame-o/portfolio.git
 ```
 
 2. Install dependencies:
