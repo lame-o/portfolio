@@ -71,10 +71,7 @@ export function AboutSection() {
                 >
                   <source src="/images/wave-hand.webm" type="video/webm" />
                 </video>
-              </span> I'm Liam, a <span className="font-bold text-[#ffecd6]">UCSD</span> alumni and deeply driven problem solver accelerated by AI.
-            </p>
-            <p className="text-lg leading-relaxed text-white/90">
-              I am trained in Engineering and Human-Computer Interaction; Currently an{' '}
+              </span> I'm Liam. Currently an{' '}
               <span className="font-bold text-[#ffecd6]">
                 AI Strategist @{' '}
                 <a
