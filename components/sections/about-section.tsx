@@ -86,6 +86,9 @@ export function AboutSection() {
                 </a>
               </span>
             </p>
+            <p className="text-lg leading-relaxed text-white/90">
+              Please reach out using my contact below
+            </p>
           </motion.div>
 
           <div className="relative w-full h-[320px] sm:h-[400px] md:h-[450px]">
