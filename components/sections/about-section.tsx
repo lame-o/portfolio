@@ -71,24 +71,39 @@ export function AboutSection() {
                 >
                   <source src="/images/wave-hand.webm" type="video/webm" />
                 </video>
-              </span> I'm Liam. Currently an{' '}
-              <span className="font-bold text-[#ffecd6]">
-                AI Strategist @{' '}
-                <a
-                  href="https://cadre.ai/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  // Underline carries the affordance; only its colour animates on
-                  // hover, so the text itself never shifts.
-                  className="rounded-sm underline decoration-[#ffecd6]/40 underline-offset-4 transition-colors duration-150 hover:decoration-[#ffecd6] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#ffecd6]/70 focus-visible:ring-offset-2 focus-visible:ring-offset-[#785650]"
-                >
-                  Cadre AI
-                </a>
-              </span>
+              </span> I&rsquo;m Liam, please reach out using my contacts below
             </p>
-            <p className="text-lg leading-relaxed text-white/90">
-              Please reach out using my contact below
-            </p>
+
+            {/* Role block — deliberately not prose. Set as a credential entry
+                so it reads as a fact about the work rather than another
+                sentence: a timeline stem and node, a small label, the title,
+                then the employer carrying the link. */}
+            <div className="relative pl-5">
+              <span
+                aria-hidden="true"
+                className="absolute left-0 top-2 bottom-1 w-px bg-[#ffecd6]/25"
+              />
+              <span
+                aria-hidden="true"
+                className="absolute -left-[3px] top-[7px] h-[7px] w-[7px] rounded-full bg-[#ffecd6]/80"
+              />
+              <p className="text-[0.68rem] font-medium uppercase tracking-[0.22em] text-[#ffecd6]/85">
+                Currently
+              </p>
+              <p className="mt-1.5 text-xl font-bold leading-tight text-[#ffecd6]">
+                AI Strategist
+              </p>
+              <a
+                href="https://cadre.ai/"
+                target="_blank"
+                rel="noopener noreferrer"
+                // Underline carries the affordance; only its colour animates on
+                // hover, so the text itself never shifts.
+                className="mt-0.5 inline-block rounded-sm text-base text-white/80 underline decoration-[#ffecd6]/30 underline-offset-4 transition-colors duration-150 hover:text-[#ffecd6] hover:decoration-[#ffecd6] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#ffecd6]/70 focus-visible:ring-offset-2 focus-visible:ring-offset-[#785650]"
+              >
+                Cadre AI
+              </a>
+            </div>
           </motion.div>
 
           <div className="relative w-full h-[320px] sm:h-[400px] md:h-[450px]">
